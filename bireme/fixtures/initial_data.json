@@ -1,0 +1,20 @@
+[ 
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "moa", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2012-10-23 11:20:29", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$547f1$a342428b0c918d0f5495b5b45bf16e6e15a9fba8", 
+      "email": "moacir.moda@bireme.org", 
+      "date_joined": "2012-10-23 11:20:29"
+    }
+  }
+]

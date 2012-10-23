@@ -1,0 +1,12 @@
+[??] * Deseja acompanhar o encaminhamento da sua solicitação? (sim, não)
+[auth] * Nome
+[auth] * email
+[auth] * Profissão (acho que pode ser campo livre)
+[auth] * idade ( < 30,  30 <= x < 45, >= 45)
+[feed] * O problema/erro encontrado foi impeditivo para encontrar a informação desejada? (sim, não)
+[feed] * qual foi o erro??
+[add] * Você utiliza sites similares a este? (sim, não). 
+[add] * Quais sites?
+[add] * Você é usuário regular deste site? (sim, não)
+[add] * Como você acha que este site deveria funcionar/apresentar/aparentar/comportar:
+[add] * Qual a finalidade da sua consulta na BVS? investigação científica, atualização profissional, pessoal, decisão clínica, decisão política, outro (qual)

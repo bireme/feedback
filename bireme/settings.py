@@ -133,8 +133,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'django_tools',
     'rosetta',
 
+    'bireme.application',
     'bireme.feedback',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
