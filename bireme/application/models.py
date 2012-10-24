@@ -42,4 +42,4 @@ class Version(Generic):
     version = models.CharField(_("version"), max_length=255)
     
     def __unicode__(self):
-        return unicode(self.version)        
+        return unicode("%s - %s" % (self.application, self.version))

@@ -2,21 +2,9 @@
 {% load i18n %}
 
 {% block content %}
-<form method="POST" action="{% url feedback.views.first %}">{% csrf_token %}
+<form method="POST" action="{% url feedback.views.first software.id %}">{% csrf_token %}
     
-    {% for field in form %}
-    <div>
-        {% if field.name == "is_blocker" %}
-            <label for="id_{{ field.name }}">
-                {{ field }}
-                {{ field.label }}
-            </label>
-        {% else %}
-            {{ field.label_tag }}
-            {{ field }}
-        {% endif %}
-    </div>
-    {% endfor %}
+    {{ form }}
 
     <div class="control-group">
         <button type="submit">{% trans "Submit" %}</button>

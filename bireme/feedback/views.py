@@ -5,9 +5,10 @@ from django.http import Http404
 from models import *
 from forms import *
 
-def first(request):
+def first(request, software):
     output = {}
-    form = FirstForm()
+    software = get_object_or_404(Version, id=software)
+    form = FirstForm(initial={'software': software.id})
 
     if request.POST:
         form = FirstForm(request.POST)
@@ -15,6 +16,8 @@ def first(request):
             form.save()
 
     output['form'] = form
+    output['software'] = software
+
     return render_to_response('feedback/first.html', output, context_instance=RequestContext(request))    
 
 def second(request, feedback):
