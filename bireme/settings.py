@@ -138,6 +138,7 @@ INSTALLED_APPS = [
 
     'bireme.application',
     'bireme.feedback',
+    'bireme.account',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 ]
@@ -196,6 +197,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
+AUTH_PROFILE_MODULE = "account.UserProfile"
 ITEMS_PER_PAGE = 20
 GOOGLE_ANALYTICS_ID = None
 
