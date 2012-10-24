@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<form method="POST" action="{% url feedback.views.second feedback.id %}">{% csrf_token %}
+    
+    {{ form }}
+    
+    <div class="control-group">
+        <button type="submit">{% trans "Submit" %}</button>
+    </div>
+</form>
+{% endblock %}

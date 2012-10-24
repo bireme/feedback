@@ -21,3 +21,16 @@ class FirstForm(forms.Form):
         feedback.problem = problem
         feedback.is_blocker = is_blocker
         feedback.save()
+
+class SecondForm(forms.ModelForm):
+    
+    class Meta:
+        model = AditionalFeedback
+        exclude = ['updated', 'updater']
+
+    feedback = forms.CharField(widget=forms.HiddenInput())
+
+    def clean(self):
+        cleaned_data = super(SecondForm, self).clean()
+        cleaned_data["feedback"] = Feedback.objects.get(id=cleaned_data["feedback"])
+        return cleaned_data
