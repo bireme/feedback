@@ -34,12 +34,14 @@ class Feedback(Generic):
         verbose_name = _("feedback")
         verbose_name_plural = _("feedbacks")
 
-    user = models.ForeignKey(User, verbose_name=_("user"))
     problem = models.TextField(_("problem"))
     blocker_error = models.BooleanField(_("is blocker error?"))
 
     def __unicode__(self):
-        return unicode(self.problem[:20])
+        problem = self.problem[:20]
+        if len(self.problem) > 20:
+            problem += "..."
+        return unicode(problem)
 
 class AditionalFeedback(Generic):
 

@@ -17,7 +17,8 @@ class Generic(models.Model):
 
     def save(self):
         self.updated = datetime.now()
-        self.updater = get_current_user()
+        if not get_current_user().is_anonymous():
+            self.updater = get_current_user()
         super(Generic, self).save()
 
 class Application(Generic):
