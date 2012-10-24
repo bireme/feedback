@@ -1,0 +1,13 @@
+<script>
+	function change_language(lang) {
+		var form = document.language;
+		form.language.value = lang;
+		form.submit();
+	}
+</script>
+
+<form action="/i18n/setlang/" method="post" id="setlang" name="language">
+	{% csrf_token %}
+	<input name="next" type="hidden" value="{{ redirect_to }}" />
+	<input name="language" type="hidden" value="{{ request.LANGUAGE_CODE }}"  id="lang"/>
+</form>	
