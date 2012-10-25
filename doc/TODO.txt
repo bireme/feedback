@@ -1,3 +1,1 @@
-- criar opção "outros" para objetivo de uso
-- criar fixtures para Objectives
-- adicionar alterações pessoais no segundo form
+- adicionar 'similarsites'
