@@ -1,9 +1,19 @@
 from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from application.models import *
 from django.http import Http404
 from models import *
 from forms import *
+
+def index(request):
+
+    output = {}
+    softwares = Version.objects.all()
+
+    output['softwares'] = softwares
+
+    return render_to_response('feedback/index.html', output, context_instance=RequestContext(request))        
 
 def first(request, software):
     output = {}
@@ -14,6 +24,15 @@ def first(request, software):
         form = FirstForm(request.POST)
         if form.is_valid():
             form.save()
+
+            try:
+                user = User.objects.get(email=request.POST.get('email'))
+                feedback = Feedback.objects.filter(creator=user)
+                feedback = feedback[feedback.count()-1]
+            except:
+                raise Http404
+
+            return redirect(reverse("feedback.views.second", kwargs={'feedback': feedback.id}))
 
     output['form'] = form
     output['software'] = software
@@ -28,13 +47,21 @@ def second(request, feedback):
     if AditionalFeedback.objects.filter(feedback=feedback):
         raise Http404
 
-    aditional = AditionalFeedback(feedback=feedback)
-    form = SecondForm(instance=aditional)
+    initial_data = {
+        "feedback": feedback.id,
+        'name': feedback.creator.first_name,
+        'age': feedback.creator.get_profile().age,
+        'occupation': feedback.creator.get_profile().occupation,
+    }
+
+    form = SecondForm(initial=initial_data)
 
     if request.POST:
         form = SecondForm(request.POST)
         if form.is_valid():
             form.save()
+
+            return redirect(reverse("feedback_thanks"))
 
     output['form'] = form
     output['feedback'] = feedback

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Please choice the software that you want to report:" %}</h2>
+<ul>
+    {% for software in softwares %}
+        <li><a href="{% url feedback.views.first software.id %}">{{ software }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
