@@ -10,6 +10,7 @@ class Objective(Generic):
         verbose_name_plural = _("objectives")
 
     title = models.CharField(_("objective"), max_length=255)
+    is_another = models.BooleanField(_("Is another?"))
 
     def __unicode__(self):
         return unicode(self.title)    
@@ -26,7 +27,6 @@ class SimilarSite(Generic):
 
     def __unicode__(self):
         return unicode(self.url)
-
 
 class Feedback(Generic):
 
@@ -54,5 +54,6 @@ class AditionalFeedback(Generic):
     objective = models.ForeignKey(Objective, null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"))
     regular_user = models.BooleanField(_("Regular User?"), default=False)
     how_should_work = models.TextField(_("how this site should work?"), null=True, blank=True)
+    another_objective = models.CharField(_("Describe your purpose to use our applications"), max_length=255, blank=True, null=True)
 
 

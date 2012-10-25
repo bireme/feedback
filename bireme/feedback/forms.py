@@ -32,12 +32,13 @@ class SecondForm(forms.Form):
     
     feedback = forms.CharField(widget=forms.HiddenInput(), required=True)
     objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("What your purpose to use our applications?"), required=False)
+    another_objective = forms.CharField(label=_("Describe your purpose to use our applications"))
     regular_user = forms.BooleanField(label=_("Are you a regular user?"), required=False)
     how_should_work = forms.CharField(label=_("how this site should work?"), widget=forms.Textarea(), required=False)
 
     name = forms.CharField(label=_("What's your name?"), required=False)
     occupation = forms.CharField(label=_("What is your occupation?"), required=False)
-    age = forms.CharField(label=_("What's your age?"), widget=forms.Select(choices=UserProfile.AGE_CHOICES))
+    age = forms.CharField(label=_("What's your age?"), widget=forms.Select(choices=UserProfile.AGE_CHOICES))      
 
     def clean_feedback(self):
         cleaned_data = super(SecondForm, self).clean()
@@ -49,7 +50,7 @@ class SecondForm(forms.Form):
         data = self.cleaned_data
 
         if Feedback.objects.filter(id=self.data['feedback']):
-            print "já existe"
+            raise Http404
 
         feedback = Feedback.objects.get(id=self.data['feedback'])
         
@@ -57,6 +58,7 @@ class SecondForm(forms.Form):
         add.objective = data['objective']
         add.regular_user = data['regular_user']
         add.how_should_work = data['how_should_work']
+        add.another_objective = data['another_objective']
         add.save()
 
         profile = UserProfile.objects.get(user=feedback.creator)
