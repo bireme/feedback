@@ -1,8 +1,14 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+# view to redirect from feedback application
+def index(request):
+    return HttpResponseRedirect(reverse("feedback.views.index"))
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,4 +21,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^feedback/', include("feedback.urls")),
+    url(r'^$', index),
 )
