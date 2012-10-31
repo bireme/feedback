@@ -5,6 +5,7 @@ from django import forms
 from models import *
 from application.models import *
 from account.models import *
+from django.http import Http404
 
 class FirstForm(forms.Form):
 
@@ -32,7 +33,7 @@ class SecondForm(forms.Form):
     
     feedback = forms.CharField(widget=forms.HiddenInput(), required=True)
     objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("What your purpose to use our applications?"), required=False)
-    another_objective = forms.CharField(label=_("Describe your purpose to use our applications"))
+    another_objective = forms.CharField(label=_("Describe your purpose to use our applications"), required=False)
     regular_user = forms.BooleanField(label=_("Are you a regular user?"), required=False)
     how_should_work = forms.CharField(label=_("how this site should work?"), widget=forms.Textarea(), required=False)
 
@@ -48,11 +49,11 @@ class SecondForm(forms.Form):
     def save(self, commit=True):
 
         data = self.cleaned_data
-
-        if Feedback.objects.filter(id=self.data['feedback']):
+        
+        try:
+            feedback = Feedback.objects.get(id=self.data['feedback'])
+        except:
             raise Http404
-
-        feedback = Feedback.objects.get(id=self.data['feedback'])
         
         add = AditionalFeedback(feedback=feedback)
         add.objective = data['objective']

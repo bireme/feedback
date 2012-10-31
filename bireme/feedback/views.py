@@ -5,6 +5,7 @@ from application.models import *
 from django.http import Http404
 from models import *
 from forms import *
+from django.http import HttpResponse
 
 def index(request):
 
@@ -29,8 +30,9 @@ def first(request, software):
                 user = User.objects.get(email=request.POST.get('email'))
                 feedback = Feedback.objects.filter(creator=user)
                 feedback = feedback[feedback.count()-1]
-            except:
-                raise Http404
+            except Exception as e:
+                # raise Http404
+                return HttpResponse(e)
 
             return redirect(reverse("feedback.views.second", kwargs={'feedback': feedback.id}))
 
