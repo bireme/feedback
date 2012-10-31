@@ -1,0 +1,17 @@
+from fabric.api import env
+
+env.appname = 'feedback'
+
+env.user = 'moacir.moda'
+env.path = '/home/aplicacoes/' + env.appname + '/'
+env.rootpath = env.path + 'bireme/'
+env.gitpath = env.path + 'git/'
+env.virtualenv = env.path + 'env/'
+
+def test():
+    """Test server"""
+    env.hosts = ['ts01dx']
+
+def homolog():
+    """Stage server"""
+    env.hosts = ['hm01dx']
