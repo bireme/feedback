@@ -31,8 +31,7 @@ def first(request, software):
                 feedback = Feedback.objects.filter(creator=user)
                 feedback = feedback[feedback.count()-1]
             except Exception as e:
-                # raise Http404
-                return HttpResponse(e)
+                raise Http404
 
             return redirect(reverse("feedback.views.second", kwargs={'feedback': feedback.id}))
 
