@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -23,3 +24,8 @@ urlpatterns = patterns('',
     url(r'^feedback/', include("feedback.urls")),
     url(r'^$', index),
 )
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )
