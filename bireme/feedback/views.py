@@ -23,8 +23,13 @@ def first(request, software):
     version = None
     if 'v' in request.GET:
         version = request.GET.get('v')
+    
+    referer = ""
+    if 'HTTP_REFERER' in request.META:
+        referer = request.META['HTTP_REFERER']
 
-    form = FirstForm(initial={'software': software.id, 'version': version})
+    form = FirstForm(initial={'software': software.id, 'version': version, 
+        'ip': request.META['REMOTE_ADDR'], 'referer': referer})
 
     if request.POST:
         form = FirstForm(request.POST)

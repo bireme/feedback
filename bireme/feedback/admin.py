@@ -1,5 +1,6 @@
 from django.contrib import admin
 from models import *
+from util.models import *
 
 class GenericAdmin(admin.ModelAdmin):
     exclude = ('updated', 'updater')
@@ -16,4 +17,4 @@ class FeedbackAdmin(GenericAdmin):
 admin.site.register(Objective, GenericAdmin)
 admin.site.register(SimilarSite, GenericAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
-
+admin.site.register(Country)

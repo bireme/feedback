@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from application.models import *
+from util.models import *
 from django.db import models
 
 class Objective(Generic):
@@ -38,6 +39,9 @@ class Feedback(Generic):
     blocker_error = models.BooleanField(_("is blocker error?"))
     application = models.ForeignKey(Application, verbose_name=_("Software"))
     version = models.CharField(max_length=255, verbose_name=_("Version"), null=True, blank=True)
+    ip = models.CharField(_("ip"), max_length=255)
+    referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
+    country = models.ForeignKey(Country)
 
     def __unicode__(self):
         problem = self.problem[:20]

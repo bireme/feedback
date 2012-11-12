@@ -139,6 +139,7 @@ INSTALLED_APPS = [
     'bireme.application',
     'bireme.feedback',
     'bireme.account',
+    'bireme.util',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 ]
