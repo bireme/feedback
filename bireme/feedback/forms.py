@@ -13,6 +13,7 @@ class FirstForm(forms.Form):
     problem = forms.CharField(label=_("Describe the problem:"), required=True, widget=forms.Textarea())
     is_blocker =forms.BooleanField(label=_("Does this error disallows application to resume?"), required=False)
     software = forms.CharField(widget=forms.HiddenInput(), required=False)
+    version = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     def save(self, commit=True):
 
@@ -20,13 +21,15 @@ class FirstForm(forms.Form):
         problem = self.cleaned_data["problem"]
         is_blocker = self.cleaned_data["is_blocker"]
         software = self.cleaned_data["software"]
+        version = self.cleaned_data["version"]
 
         user, created = User.objects.get_or_create(email=email, username=email)
 
         feedback = Feedback(creator=user, updater=user)
         feedback.problem = problem
         feedback.is_blocker = is_blocker
-        feedback.software = Version.objects.get(id=software)
+        feedback.application = Application.objects.get(id=software)
+        feedback.version = version
         feedback.save()
 
 class SecondForm(forms.Form):

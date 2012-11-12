@@ -36,7 +36,8 @@ class Feedback(Generic):
 
     problem = models.TextField(_("problem"))
     blocker_error = models.BooleanField(_("is blocker error?"))
-    software = models.ForeignKey(Version, verbose_name=_("Software"))
+    application = models.ForeignKey(Application, verbose_name=_("Software"))
+    version = models.CharField(max_length=255, verbose_name=_("Version"), null=True, blank=True)
 
     def __unicode__(self):
         problem = self.problem[:20]

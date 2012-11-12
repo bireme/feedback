@@ -10,7 +10,7 @@ from django.http import HttpResponse
 def index(request):
 
     output = {}
-    softwares = Version.objects.all()
+    softwares = Application.objects.all()
 
     output['softwares'] = softwares
 
@@ -18,8 +18,13 @@ def index(request):
 
 def first(request, software):
     output = {}
-    software = get_object_or_404(Version, id=software)
-    form = FirstForm(initial={'software': software.id})
+    software = get_object_or_404(Application, slug=software)
+    
+    version = None
+    if 'v' in request.GET:
+        version = request.GET.get('v')
+
+    form = FirstForm(initial={'software': software.id, 'version': version})
 
     if request.POST:
         form = FirstForm(request.POST)
