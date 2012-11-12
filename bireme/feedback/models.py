@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from application.models import *
 from util.models import *
 from django.db import models
+import md5
 
 class Objective(Generic):
 
@@ -42,12 +43,16 @@ class Feedback(Generic):
     ip = models.CharField(_("ip"), max_length=255)
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
     country = models.ForeignKey(Country)
+    hash = models.CharField(_('hash'), max_length=255)
 
     def __unicode__(self):
         problem = self.problem[:20]
         if len(self.problem) > 20:
             problem += "..."
         return unicode(problem)
+def feedback_pre_save(signal, instance, sender, **kwargs):
+    instance.hash = md5.new(datetime.now().__str__()).hexdigest()
+signals.pre_save.connect(feedback_pre_save, sender=Feedback)
 
 class AditionalFeedback(Generic):
 
