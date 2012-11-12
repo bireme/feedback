@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.db import models
 from datetime import datetime
+from django.db.models import signals
+from django.template.defaultfilters import slugify
 
 class Generic(models.Model):
 
@@ -28,18 +30,11 @@ class Application(Generic):
         verbose_name_plural = _("applications")
 
     name = models.CharField(_("name"), max_length=255)
+    slug = models.SlugField(max_length=255, blank=True)
 
     def __unicode__(self):
         return unicode(self.name)
 
-class Version(Generic):
-    
-    class Meta:
-        verbose_name = _("version")
-        verbose_name_plural = _("versions")
-
-    application = models.ForeignKey(Application, verbose_name=_("application"))
-    version = models.CharField(_("version"), max_length=255)
-    
-    def __unicode__(self):
-        return unicode("%s - %s" % (self.application, self.version))
+def application_pre_save(signal, instance, sender, **kwargs):
+    instance.slug = slugify(instance.name)
+signals.pre_save.connect(application_pre_save, sender=Application)
