@@ -10,7 +10,12 @@ class GenericAdmin(admin.ModelAdmin):
 class GenericStackedAdmin(admin.StackedInline):
     exclude = ('updated', 'updater')
 
+class VersionStackedAdmin(GenericStackedAdmin):
+    model = Version 
+    extra = 0 
+
 class ApplicationAdmin(GenericAdmin):
     list_display = ('name', 'creator', 'created')
+    inlines = [VersionStackedAdmin, ]
 
 admin.site.register(Application, ApplicationAdmin)

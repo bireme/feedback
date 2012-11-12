@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
+<form method="POST" action="{% url feedback.views.first software.id %}">{% csrf_token %}
     
     {{ form }}
 
