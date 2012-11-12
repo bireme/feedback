@@ -18,6 +18,7 @@ class FirstForm(forms.Form):
     ip = forms.CharField(widget=forms.HiddenInput(), required=False)
     referer = forms.CharField(widget=forms.HiddenInput(), required=False)
     country = forms.CharField(widget=forms.HiddenInput(), required=False)
+    site = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     def save(self, commit=True):
 
@@ -29,6 +30,7 @@ class FirstForm(forms.Form):
         ip = self.cleaned_data["ip"]
         referer = self.cleaned_data["referer"]
         country = self.cleaned_data["country"]
+        site = self.cleaned_data["site"]
 
         user, created = User.objects.get_or_create(email=email, username=email)
         
@@ -46,6 +48,7 @@ class FirstForm(forms.Form):
         feedback.ip = ip
         feedback.referer = referer
         feedback.country = country
+        feedback.site = site
 
         feedback.save()
 

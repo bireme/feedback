@@ -44,6 +44,7 @@ class Feedback(Generic):
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
     country = models.ForeignKey(Country)
     hash = models.CharField(_('hash'), max_length=255)
+    site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
 
     def __unicode__(self):
         problem = self.problem[:20]
