@@ -31,6 +31,7 @@ class Application(Generic):
 
     name = models.CharField(_("name"), max_length=255)
     slug = models.SlugField(max_length=255, blank=True)
+    responsible = models.EmailField(_("responsible"))
 
     def __unicode__(self):
         return unicode(self.name)
