@@ -42,7 +42,6 @@ class Feedback(Generic):
     version = models.CharField(max_length=255, verbose_name=_("Version"), null=True, blank=True)
     ip = models.CharField(_("ip"), max_length=255)
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
-    country = models.ForeignKey(Country)
     hash = models.CharField(_('hash'), max_length=255)
     site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
 
