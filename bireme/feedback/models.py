@@ -46,7 +46,7 @@ class Feedback(Generic):
     site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
     is_error = models.BooleanField(_("is a error?"))
     staff_comment = models.TextField(_("staff comment"), blank=True, null=True)
-    is_active = models.BooleanField()
+    is_active = models.BooleanField(default=True)
 
     def __unicode__(self):
         problem = self.problem[:20]
