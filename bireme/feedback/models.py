@@ -44,6 +44,7 @@ class Feedback(Generic):
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
     hash = models.CharField(_('hash'), max_length=255)
     site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
+    is_error = models.BooleanField(_("is a error?"))
 
     def __unicode__(self):
         problem = self.problem[:20]

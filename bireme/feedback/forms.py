@@ -19,6 +19,8 @@ class FirstForm(forms.Form):
     referer = forms.CharField(widget=forms.HiddenInput(), required=False)
     country = forms.CharField(widget=forms.HiddenInput(), required=False)
     site = forms.CharField(widget=forms.HiddenInput(), required=False)
+    is_error = forms.CharField(widget=forms.HiddenInput(), required=False)
+    
 
     def save(self, commit=True):
 
@@ -31,6 +33,11 @@ class FirstForm(forms.Form):
         referer = self.cleaned_data["referer"]
         country = self.cleaned_data["country"]
         site = self.cleaned_data["site"]
+        
+        # is_error precisa vir no form como 0 ou 1
+        is_error = False
+        if self.cleaned_data["is_error"] != "False":
+            is_error = True
 
         user, created = User.objects.get_or_create(email=email, username=email)
         
@@ -49,6 +56,7 @@ class FirstForm(forms.Form):
         feedback.referer = referer
         feedback.country = country
         feedback.site = site
+        feedback.is_error = is_error
 
         feedback.save()
 

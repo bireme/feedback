@@ -19,6 +19,10 @@ def index(request):
 def first(request, software):
     output = {}
     software = get_object_or_404(Application, slug=software)
+
+    error = False
+    if 'error' in request.GET and requeques.GET.get('error') == 1:
+        error = True
     
     version = None
     if 'v' in request.GET:
@@ -33,7 +37,7 @@ def first(request, software):
         site = request.GET.get('site')
 
     form = FirstForm(initial={'software': software.id, 'version': version, 
-        'ip': request.META['REMOTE_ADDR'], 'referer': referer, 'site': site})
+        'ip': request.META['REMOTE_ADDR'], 'referer': referer, 'site': site, 'is_error': error})
 
     if request.POST:
         form = FirstForm(request.POST)
