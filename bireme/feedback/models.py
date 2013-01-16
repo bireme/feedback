@@ -47,12 +47,14 @@ class Feedback(Generic):
     is_error = models.BooleanField(_("is a error?"))
     staff_comment = models.TextField(_("staff comment"), blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    answer = models.TextField(_("answer"), blank=True, null=True)
 
     def __unicode__(self):
         problem = self.problem[:20]
         if len(self.problem) > 20:
             problem += "..."
         return unicode(problem)
+
 def feedback_pre_save(signal, instance, sender, **kwargs):
     instance.hash = md5.new(datetime.now().__str__()).hexdigest()
 signals.pre_save.connect(feedback_pre_save, sender=Feedback)
