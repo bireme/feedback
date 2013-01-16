@@ -1,0 +1,95 @@
+.spacer {
+	clear: both;
+	height: 1px;
+}
+#identification .imgContainer {
+	float: left;
+}
+#identification .siteName H1, #identification .siteName H2 {
+	line-height: 100%;
+	margin: 0px;
+}
+header {
+	margin-top: 1rem;
+	border-bottom: 1px solid #6693bb;
+}
+address {
+	font-size: .7rem;
+	line-height: .875rem;
+	margin-top: 1rem;
+}
+#identification .siteName {
+	margin-top: 20px;
+}
+#identification .siteName H1 {
+	font-size: 1.2rem;
+}
+#identification .siteName H2 {
+	font-size: 1.8rem;
+}
+section {
+	min-height: 500px;
+}
+hgroup H1 {
+	font-size: 1.45rem;
+}
+fieldset.feedbackForm {
+	padding:22px;
+	background: #EEE;
+	border-radius: 6px;
+	box-shadow: 0px 0px 3px #666;
+}
+.help-inline {
+	font-size: .7rem;
+	color: #3A87AD;
+}
+.msgHistory {
+	margin: 0px 0px 30px 0px;
+}
+.indent {
+	background: url(../images/indent.png) no-repeat 12px 16px;
+	height: 70px;
+}
+.msgHistory .msg, .msgHistory .answer {
+	margin-bottom: 12px;
+}
+.userBlock {
+	margin: 8px 0px;
+}
+.userBlock .userData {
+	float: left;
+}
+.userBlock .userData .userName {
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.userBlock .userData .postDate {
+	font-size: .7rem;
+	font-style: italic;
+}
+.userBlock .userIcon {
+	display: block;
+	width: 55px;
+	height: 55px;
+	border-radius: 6px;
+	background: #EEE;
+	float: left;
+	margin: 0px 8px 0px 0px;
+	box-shadow: 0px 0px 3px #666;
+}
+.userBlock .userIcon.dummy {
+	background: #EEE url(../images/dummy.png) no-repeat center;
+}
+.userBlock .userIcon.bir {
+	background: #EEE url(../images/logo-BIREME-mini.png) no-repeat center;
+}
+footer {
+	background: #e6e6e6 url(../images/bg-footer.png) repeat-x;
+	padding: 1rem 0 3rem 0;
+	font-size: .75rem;
+	line-height: .975rem;
+}
+
+.control-group {
+	margin-top: 10px;
+}

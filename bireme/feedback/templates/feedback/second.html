@@ -21,17 +21,27 @@
                 html_another.show();                
             }
         })
+
+        $("#id_how_should_work").addClass("input-xxlarge");
+        $("#id_email").attr("placeholder", "{% trans 'Preencha com seu email' %}");
+        
+        $("#id_problem").addClass("input-xxlarge");
     });
 </script>
 {% endblock %}
 
 {% block content %}
 <form method="POST" action="{% url feedback.views.second feedback.id %}">{% csrf_token %}
+
+    <hgroup><h1>{% trans "One minute of your time?" %}</h1></hgroup>
+
+    <fieldset class="feedbackForm">
+
+        {{ form }}
+        
+        <div class="control-group"><button type="submit" class="btn btn-primary">{% trans "Submit" %}</button> </div>
+    </fieldset>
     
-    {{ form.as_p }}
     
-    <div class="control-group">
-        <button type="submit">{% trans "Submit" %}</button>
-    </div>
 </form>
 {% endblock %}

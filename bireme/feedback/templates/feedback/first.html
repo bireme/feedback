@@ -2,12 +2,26 @@
 {% load i18n %}
 
 {% block content %}
+
+<script>
+    $(function(){
+        $("#id_email").addClass("input-xxlarge");
+        $("#id_email").attr("placeholder", "{% trans 'Preencha com seu email' %}");
+        
+        $("#id_problem").addClass("input-xxlarge");
+    });
+</script>
+
 <form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
     
-    {{ form }}
+    <hgroup><h1>Envie seu comentário</h1></hgroup>
 
-    <div class="control-group">
-        <button type="submit">{% trans "Submit" %}</button>
-    </div>
+    <fieldset class="feedbackForm">
+        {{ form }}
+        <div class="control-group">
+            <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+        </div>
+    </fieldset>
+
 </form>
 {% endblock %}

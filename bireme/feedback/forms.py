@@ -66,11 +66,11 @@ class SecondForm(forms.Form):
     objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("What your purpose to use our applications?"), required=False)
     another_objective = forms.CharField(label=_("Describe your purpose to use our applications"), required=False)
     regular_user = forms.BooleanField(label=_("Are you a regular user?"), required=False)
-    how_should_work = forms.CharField(label=_("how this site should work?"), widget=forms.Textarea(), required=False)
 
     name = forms.CharField(label=_("What's your name?"), required=False)
     occupation = forms.CharField(label=_("What is your occupation?"), required=False)
     age = forms.CharField(label=_("What's your age?"), widget=forms.Select(choices=UserProfile.AGE_CHOICES))      
+    how_should_work = forms.CharField(label=_("how this site should work?"), widget=forms.Textarea(), required=False)
 
     def clean_feedback(self):
         cleaned_data = super(SecondForm, self).clean()
