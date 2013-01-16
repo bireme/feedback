@@ -64,9 +64,6 @@ def second(request, feedback):
     feedback = get_object_or_404(Feedback, id=feedback)
     another = Objective.objects.filter(is_another=True)[0]
 
-    if AditionalFeedback.objects.filter(feedback=feedback):
-        raise Http404
-
     initial_data = {
         "feedback": feedback.id,
         'name': feedback.creator.first_name,

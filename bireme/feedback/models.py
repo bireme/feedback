@@ -65,10 +65,12 @@ class AditionalFeedback(Generic):
         verbose_name = _("aditional feedback")
         verbose_name_plural = _("aditionals feedback")
 
-    feedback = models.ForeignKey(Feedback, unique=True)
     objective = models.ForeignKey(Objective, null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"))
     regular_user = models.BooleanField(_("Regular User?"), default=False)
     how_should_work = models.TextField(_("how this site should work?"), null=True, blank=True)
     another_objective = models.CharField(_("Describe your purpose to use our applications"), max_length=255, blank=True, null=True)
+
+    def __unicode__(self):
+        return unicode(self.id)
 
 

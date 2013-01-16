@@ -86,7 +86,7 @@ class SecondForm(forms.Form):
         except:
             raise Http404
         
-        add = AditionalFeedback(feedback=feedback)
+        add = AditionalFeedback(creator=feedback.creator)
         add.objective = data['objective']
         add.regular_user = data['regular_user']
         add.how_should_work = data['how_should_work']
