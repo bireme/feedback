@@ -51,7 +51,7 @@ def first(request, software):
             except Exception as e:
                 raise Http404
 
-            return redirect(reverse("feedback.views.second", kwargs={'feedback': feedback.id}))
+            return redirect(reverse("feedback.views.thanks", kwargs={'feedback': feedback.id}))
 
     output['form'] = form
     output['software'] = software
@@ -78,10 +78,26 @@ def second(request, feedback):
         if form.is_valid():
             form.save()
 
-            return redirect(reverse("feedback_thanks"))
+            return redirect(reverse("feedback_thanks2", kwargs={'feedback': feedback.id}))
 
     output['another'] = another
     output['form'] = form
     output['feedback'] = feedback
 
-    return render_to_response('feedback/second.html', output, context_instance=RequestContext(request))    
+    return render_to_response('feedback/second.html', output, context_instance=RequestContext(request))
+
+def thanks(request, feedback):
+
+    output = {}
+    feedback = get_object_or_404(Feedback, id=feedback)
+
+    output['feedback'] = feedback
+    return render_to_response('feedback/thanks.html', output, context_instance=RequestContext(request))
+
+def thanks2(request, feedback):
+
+    output = {}
+    feedback = get_object_or_404(Feedback, id=feedback)
+
+    output['feedback'] = feedback
+    return render_to_response('feedback/thanks2.html', output, context_instance=RequestContext(request))
