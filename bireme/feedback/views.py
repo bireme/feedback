@@ -101,3 +101,13 @@ def thanks2(request, feedback):
 
     output['feedback'] = feedback
     return render_to_response('feedback/thanks2.html', output, context_instance=RequestContext(request))
+
+def show(request, feedback):
+
+    output = {}
+    feedback = get_object_or_404(Feedback, id=feedback)
+
+    output['feedback'] = feedback
+    return render_to_response('feedback/show.html', output, context_instance=RequestContext(request))
+
+
