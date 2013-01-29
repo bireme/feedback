@@ -30,6 +30,18 @@ class SimilarSite(Generic):
     def __unicode__(self):
         return unicode(self.url)
 
+class Category(Generic):
+    """ Categories who selected by admin """
+
+    class Meta:
+        verbose_name = _("category")
+        verbose_name_plural = _("categories")
+
+    name = models.CharField(_("category"), max_length=255)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
 class Feedback(Generic):
 
     class Meta:
@@ -48,6 +60,7 @@ class Feedback(Generic):
     staff_comment = models.TextField(_("staff comment"), blank=True, null=True)
     is_active = models.BooleanField(default=True)
     answer = models.TextField(_("answer"), blank=True, null=True)
+    category = models.ForeignKey(Category, blank=True, null=True)
 
     def __unicode__(self):
         problem = self.problem[:20]
