@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="msgHistory">
+    <hgroup>
+        <h1>ID: {{ feedback.hash }}</h1>
+    </hgroup>
+    <div class="msg row-fluid">
+        <div class="msgTopic span11">
+            <div class="userBlock">
+                <div class="userIcon dummy"> </div>
+                <div class="userData">
+                    <span class="userName">{% trans "Anonymous User" %}</span><br/>
+                    <span class="postDate">{{ feedback.created }}</span>
+                </div>
+                <div class="spacer"></div>
+            </div>
+            <fieldset class="feedbackForm">
+                <p>
+                    {{ feedback.problem }}
+                </p>
+            </fieldset>
+        </div>
+    </div>
+
+
+    {% if feedback.answer %}
+        <div class="answer row-fluid">
+            <div class="indent span1"></div>
+            <div class="msgTopic span10">
+                <div class="userBlock">
+                    <div class="userIcon bir"> </div>
+                    <div class="userData">
+                        <span class="userName">BIREME | OPAS | OMS</span><br/>
+                        <span class="postDate">{{ feedback.updated }}</span>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+                <fieldset class="feedbackForm">
+                    {{ feedback.answer }}
+                </fieldset>
+            </div>
+        </div>
+    {% endif %}
+    <div class="level1 row-fluid">
+        <button type="submit" class="btn"><i class="icon-print"></i> Print this</button>
+    </div>
+</div>
+
+{% endblock %}
