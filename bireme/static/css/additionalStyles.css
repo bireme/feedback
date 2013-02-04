@@ -99,3 +99,7 @@ footer {
 	font-size: 10pt;
 	font-style: italic;
 }
+
+input[type=checkbox] {
+	margin: -3px 4px 0 0;
+}

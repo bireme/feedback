@@ -16,6 +16,20 @@
 
         <title>{% block "title" %}{% trans "BIREME Feedback" %}{% endblock %}</title>
 
+        <script>
+            $(function(){
+                
+                // invertendo os checkboxes, que o django coloca ao contrário 
+                $("input[type=checkbox]").each(function(){
+                    var label = $(this).prev('label');
+                    var this_html = $('<div>').append($(this).clone()).remove().html();
+
+                    label.prepend(this_html);
+                    $(this).remove();
+                });
+            });
+        </script>
+
         {% block extrahead %}{% endblock %}
     {% endblock %}</head>
     
