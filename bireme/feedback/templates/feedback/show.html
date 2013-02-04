@@ -12,7 +12,7 @@
             <div class="userBlock">
                 <div class="userIcon dummy"> </div>
                 <div class="userData">
-                    <span class="userName">{% trans "Anonymous User" %}</span><br/>
+                    <span class="userName">{% trans "User" %}</span><br/>
                     <span class="postDate">{{ feedback.created }}</span>
                 </div>
                 <div class="spacer"></div>
@@ -45,7 +45,7 @@
         </div>
     {% endif %}
     <div class="level1 row-fluid">
-        <button type="submit" class="btn"><i class="icon-print"></i> Print this</button>
+        <button type="submit" class="btn"><i class="icon-print"></i>{% trans "Print this" %}</button>
     </div>
 </div>
 

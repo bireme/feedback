@@ -14,7 +14,7 @@
 
 <form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
     
-    <hgroup><h1>Envie seu comentário</h1></hgroup>
+    <hgroup><h1>{% trans "Send your comment" %}</h1></hgroup>
 
     <fieldset class="feedbackForm">
         {{ form }}
