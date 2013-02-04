@@ -9,12 +9,22 @@
         $("#id_email").attr("placeholder", "{% trans 'Preencha com seu email' %}");
         
         $("#id_problem").addClass("input-xxlarge");
+
+        {% if not request.GET.error == '1' %}
+            $("label[for=id_is_blocker]").hide();
+            $("#id_is_blocker").hide();
+        {% endif %}
+        
     });
 </script>
 
 <form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
     
-    <hgroup><h1>{% trans "Send your comment" %}</h1></hgroup>
+    {% if request.GET.error == '1' %}
+        <hgroup><h1>{% trans "Please report the error" %}</h1></hgroup>
+    {% else %}
+        <hgroup><h1>{% trans "Send your comment" %}</h1></hgroup>
+    {% endif %}
 
     <fieldset class="feedbackForm">
         {{ form }}
