@@ -75,6 +75,7 @@ signals.pre_save.connect(feedback_pre_save, sender=Feedback)
 class AditionalFeedback(Generic):
 
     REGULAR_CHOICES = (
+        ('daily', _('Daily')),
         ('weekly', _('Weekly')),
         ('monthly', _('Monthly')),
         ('rarely', _('Rarely')),
