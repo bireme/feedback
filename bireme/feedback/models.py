@@ -1,4 +1,6 @@
+from django_tools.middlewares.ThreadLocal import get_current_request
 from django.utils.translation import ugettext_lazy as _
+from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from application.models import *
 from util.models import *
@@ -48,6 +50,7 @@ class Feedback(Generic):
         verbose_name = _("feedback")
         verbose_name_plural = _("feedbacks")
 
+
     problem = models.TextField(_("problem"))
     blocker_error = models.BooleanField(_("is blocker error?"))
     application = models.ForeignKey(Application, verbose_name=_("Software"))
@@ -67,6 +70,13 @@ class Feedback(Generic):
         if len(self.problem) > 20:
             problem += "..."
         return unicode(problem)
+    
+    def get_absolute_url(self):
+        
+        request = get_current_request()
+        url = reverse('feedback.views.show', kwargs={'feedback': self.id})
+
+        return "http://%s%s" % (request.META['HTTP_HOST'], url)
 
 def feedback_pre_save(signal, instance, sender, **kwargs):
     instance.hash = md5.new(datetime.now().__str__()).hexdigest()

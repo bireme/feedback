@@ -21,7 +21,7 @@
         </p>
         <p>
             Issue ID: {{ feedback.hash }}<br/>
-            link: <a href="{% url feedback_show feedback.id %}">{% url feedback_show feedback.id %}</a></p>
+            link: <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a></p>
             
         <button type="submit" class="btn"><i class="icon-print"></i> Print this</button>
         <button type="submit" class="btn"><i class="icon-envelope"></i> Email me</button>

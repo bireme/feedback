@@ -1,0 +1,11 @@
+{% load i18n %}
+
+{% trans "Hello User" %}<br>
+<br>
+{% trans "Your solicitation was updated." %}<br>
+<br>
+{% trans "Please check the link below" %}:
+<a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br>
+<br>
+{% trans "Regards" %},<br>
+BIREME
