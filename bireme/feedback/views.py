@@ -21,7 +21,7 @@ def first(request, software):
     software = get_object_or_404(Application, slug=software)
 
     error = False
-    if 'error' in request.GET and request.GET.get('error') == 1:
+    if 'error' in request.GET and request.GET.get('error') == '1':
         error = True
     
     version = None
