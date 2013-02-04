@@ -93,3 +93,9 @@ footer {
 .control-group {
 	margin-top: 10px;
 }
+
+.disclaimer {
+	margin: 20px 0;
+	font-size: 10pt;
+	font-style: italic;
+}
