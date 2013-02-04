@@ -65,7 +65,7 @@ class SecondForm(forms.Form):
     feedback = forms.CharField(widget=forms.HiddenInput(), required=True)
     objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("What your purpose to use our applications?"), required=False)
     another_objective = forms.CharField(label=_("Describe your purpose to use our applications"), required=False)
-    regular_user = forms.BooleanField(label=_("Are you a regular user?"), required=False)
+    regular_user = forms.ChoiceField(label=_("Are you a regular user?"), required=False, choices=AditionalFeedback.REGULAR_CHOICES)
 
     name = forms.CharField(label=_("What's your name?"), required=False)
     occupation = forms.CharField(label=_("What is your occupation?"), required=False)

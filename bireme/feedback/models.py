@@ -74,12 +74,18 @@ signals.pre_save.connect(feedback_pre_save, sender=Feedback)
 
 class AditionalFeedback(Generic):
 
+    REGULAR_CHOICES = (
+        ('weekly', _('Weekly')),
+        ('monthly', _('Monthly')),
+        ('rarely', _('Rarely')),
+    )
+
     class Meta:
         verbose_name = _("aditional feedback")
         verbose_name_plural = _("aditionals feedback")
 
     objective = models.ForeignKey(Objective, null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"))
-    regular_user = models.BooleanField(_("Regular User?"), default=False)
+    regular_user = models.CharField(_("Regular User?"), blank=True, null=True, choices=REGULAR_CHOICES, max_length=255)
     how_should_work = models.TextField(_("how this site should work?"), null=True, blank=True)
     another_objective = models.CharField(_("Describe your purpose to use our applications"), max_length=255, blank=True, null=True)
 
