@@ -58,8 +58,6 @@ class FirstForm(forms.Form):
         feedback.site = site
         feedback.is_error = is_error
 
-        print feedback.is_blocker
-
         feedback.save()
 
 class SecondForm(forms.Form):
