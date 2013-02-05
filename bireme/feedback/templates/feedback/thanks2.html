@@ -3,28 +3,23 @@
 
 {% block content %}
 
-    <h1>{% trans "Thanks!" %}</h1>
+    <h1>{% trans "Thank you!" %}</h1>
 
     <!--  traduzir esses eleemtnos para o inglês -->
     <fieldset class="feedbackForm">
         <p>
-            Mais uma vez gostaríamos de agradecer sua participação no processo contínuo de melhoria
-            dos nossos produtos e serviços.
+            {% trans "Your feedback is very important for the continuous improvement of VHL services and products." %}
         </p>
         <p>
-            A sua sugestão será analisada cuidadosamente por nossos técnicos e poderá ser incorporada 
-            em uma futura versão de nosso produto/serviço.
+            {% trans "You can follow  your report error or suggestion via the track identifier and link below." %}
         </p>
+           
         <p>
-            Você pode acompanhar o encaminhamento de sua sugestão, que ficará armazenada em nossos 
-            arquivos, seguindo o link abaixo:
+            <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a>
         </p>
-        <p>
-            Issue ID: {{ feedback.hash }}<br/>
-            link: <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a></p>
             
-        <button type="submit" class="btn"><i class="icon-print"></i> Print this</button>
-        <button type="submit" class="btn"><i class="icon-envelope"></i> Email me</button>
+        <button type="submit" class="btn"><i class="icon-print"></i>{% trans "Print this" %}</button>
+        <!-- <button type="submit" class="btn"><i class="icon-envelope"></i>{% trans "Email me" %}</button> -->
     </fieldset>
     
 {% endblock %}

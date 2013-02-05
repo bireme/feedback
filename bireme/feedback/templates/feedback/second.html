@@ -33,8 +33,6 @@
 {% block content %}
 <form method="POST" action="{% url feedback.views.second feedback.id %}">{% csrf_token %}
 
-    <hgroup><h1>{% trans "One minute of your time?" %}</h1></hgroup>
-
     <fieldset class="feedbackForm">
 
         {{ form }}

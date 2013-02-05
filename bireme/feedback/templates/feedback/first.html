@@ -6,7 +6,7 @@
 <script>
     $(function(){
         $("#id_email").addClass("input-xxlarge");
-        $("#id_email").attr("placeholder", "{% trans 'Preencha com seu email' %}");
+        $("#id_email").attr("placeholder", "{% trans 'Your email' %}");
         
         $("#id_problem").addClass("input-xxlarge");
 
@@ -14,18 +14,16 @@
             $("label[for=id_is_blocker]").hide();
             $("#id_is_blocker").hide();
             
-            $("label[for=id_problem]").html("{% trans "Give us your comment:" %}");
+            $("label[for=id_problem]").html("{% trans "Describe your sugestion:" %}");
         {% endif %}
     });
 </script>
 
 <form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
     
-    {% if request.GET.error == '1' %}
-        <hgroup><h1>{% trans "Please report the error" %}</h1></hgroup>
-    {% else %}
-        <hgroup><h1>{% trans "Send your comment" %}</h1></hgroup>
-    {% endif %}
+    <div class="disclaimer">
+        * {% trans "If you want to send any suggestion for improving this VHL site, service or product, please fill out the form. Your suggestion will be sent directly to BIREME" %}.
+    </div>
 
     <fieldset class="feedbackForm">
         {{ form }}
@@ -35,10 +33,5 @@
     </fieldset>
 
 </form>
-
-<div class="disclaimer">
-    * {% trans "The feedback service allows to report, directly to product/service responsible, a bad/wrong operation, so give opinion." %}
-    {% trans "Remember that the problem description and your comments are free access" %}.
-</div>
 
 {% endblock %}

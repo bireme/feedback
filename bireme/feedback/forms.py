@@ -65,14 +65,14 @@ class FirstForm(forms.Form):
 class SecondForm(forms.Form):
     
     feedback = forms.CharField(widget=forms.HiddenInput(), required=True)
-    objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("What your purpose to use our applications?"), required=False)
+    objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("For what purpose you use a VHL service or product?"), required=False)
     another_objective = forms.CharField(label=_("Describe your purpose to use our applications"), required=False)
-    regular_user = forms.ChoiceField(label=_("Are you a regular user?"), required=False, choices=AditionalFeedback.REGULAR_CHOICES)
+    regular_user = forms.ChoiceField(label=_("How often do you use a VHL service or product?"), required=False, choices=AditionalFeedback.REGULAR_CHOICES)
 
-    name = forms.CharField(label=_("What's your name?"), required=False)
+    name = forms.CharField(label=_("What is your name?"), required=False)
     occupation = forms.CharField(label=_("What is your occupation?"), required=False)
-    age = forms.CharField(label=_("What's your age?"), widget=forms.Select(choices=UserProfile.AGE_CHOICES))      
-    how_should_work = forms.CharField(label=_("how this site should work?"), widget=forms.Textarea(), required=False)
+    age = forms.CharField(label=_("How old are you?"), widget=forms.Select(choices=UserProfile.AGE_CHOICES))      
+    how_should_work = forms.CharField(label=_("Do you have any comment to make?"), widget=forms.Textarea(), required=False)
 
     def clean_feedback(self):
         cleaned_data = super(SecondForm, self).clean()

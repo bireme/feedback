@@ -3,34 +3,28 @@
 
 {% block content %}
 
-    <h1>{% trans "Thanks!" %}</h1>
+    <h1>{% trans "Thank you!" %}</h1>
 
     <form action="" name="" method="">
-        <hgroup><h1>{% trans "Your message has been send sussesfully!" %}</h1></hgroup>
+        <hgroup><h1>{% trans "Your suggestion has been send successfully to BIREME." %}</h1></hgroup>
         
-        <hgroup><h1>{% trans "One minute of your time?" %}</h1></hgroup>
 
         <!-- Traduzir esses elementos para o inglês -->
         <fieldset class="feedbackForm">
+            <hgroup><h1>{% trans "One minute of your time?" %}</h1></hgroup>
             <p>
-                Você é uma pessoa especial para nós, pois compartilha do desejo de ver nossos produtos e serviços
-                cada vez melhores.
+                {% trans "We want to know more about the users of our products and services. " %}
             </p>
             <p>
-                Ajude-nos a conhecê-lo melhor, respondendo a umas poucas perguntas sobre você e seu uso
-                de nossos produtos.
+                {% trans "We guarantee complete confidentiality of information provided, which will be used exclusively by BIREME. "%}
             </p>
             <p>
-                Garantimos total confidencialidade dos dados fornecidos e que os mesmos somente serão utilizados
-                internamente.
-            </p>
-            <p>
-                Podemos contar com você?
+                {% trans "Could you answer five quick questions?" %}
             </p>
 
             <div class="control-group">            
                 <a href="{% url feedback_thanks2 feedback.id %}" title="{% trans "No, thank's" %}" class="btn btn-danger">{% trans "No, thank's" %}</a>
-                <a href="{% url feedback_second feedback.id %}" class="btn btn-success">{% trans "Tell me more" %}</a>
+                <a href="{% url feedback_second feedback.id %}" class="btn btn-success">{% trans "Yes" %}</a>
             </div>
         </fieldset>
     </form>
