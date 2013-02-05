@@ -10,9 +10,8 @@ from django.http import HttpResponse
 def index(request):
 
     output = {}
-    softwares = Application.objects.all()
-
-    output['softwares'] = softwares
+    if request.GET.get('q'):
+        return redirect(reverse('feedback.views.show', kwargs={'feedback': request.GET.get('q')}))
 
     return render_to_response('feedback/index.html', output, context_instance=RequestContext(request))        
 

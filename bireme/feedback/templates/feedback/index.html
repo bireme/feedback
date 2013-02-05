@@ -2,10 +2,10 @@
 {% load i18n %}
 
 {% block content %}
-<h2>{% trans "Please choice the software that you want to report:" %}</h2>
-<ul>
-    {% for software in softwares %}
-        <li><a href="{% url feedback.views.first software.id %}">{{ software }}</a></li>
-    {% endfor %}
-</ul>
+<h2>{% trans "Search" %}</h2>
+<form action="" class="form-inline">
+    <label for="q">{% trans "Insert feedback ID" %}: </label><br>
+    <input type="text" class="input-xxlarge" name="q" id='q'>
+    <button type="submit" class="btn">{% trans "Submit" %}</button>
+</form>
 {% endblock %}
