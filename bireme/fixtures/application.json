@@ -11,5 +11,18 @@
       "updater": 1, 
       "slug": "iahx"
     }
+  }, 
+  {
+    "pk": 2, 
+    "model": "application.application", 
+    "fields": {
+      "updated": "2013-02-06 15:45:38", 
+      "responsible": "moa.moda@gmail.com", 
+      "name": "feedback", 
+      "creator": null, 
+      "created": "2013-02-06 15:41:06", 
+      "updater": 1, 
+      "slug": "feedback"
+    }
   }
 ]
