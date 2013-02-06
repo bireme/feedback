@@ -37,10 +37,14 @@ def send_email(sender, instance, created, **kwargs):
         if feedback.creator.email:
             email = feedback.creator.email
             template = render_to_string("email/user.txt", output, context_instance=RequestContext(request)) 
-            title = TITLE_USER            
+            title = TITLE_USER    
+
+            from_ = settings.EMAIL_FROM
+            if feedback.application.responsible:
+                from_ = feedback.application.responsible
 
             try:
-                msg = EmailMessage(title, template, settings.EMAIL_FROM, [email])
+                msg = EmailMessage(title, template, from_, [email])
                 msg.content_subtype = "html"
                 msg.send()
             except Exception as e:
@@ -53,8 +57,12 @@ def send_email(sender, instance, created, **kwargs):
             template = render_to_string("email/followup.txt", output, context_instance=RequestContext(request)) 
             title = TITLE_FOLLOWUP
 
+            from_ = settings.EMAIL_FROM
+            if feedback.application.responsible:
+                from_ = feedback.application.responsible
+
             try:
-                msg = EmailMessage(title, template, settings.EMAIL_FROM, [email])
+                msg = EmailMessage(title, template, from_, [email])
                 msg.content_subtype = "html"
                 msg.send()
             except Exception as e:
