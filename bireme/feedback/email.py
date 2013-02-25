@@ -7,7 +7,7 @@ from django.db.models import signals
 from django.conf import settings
 from models import *
 
-def send_email(sender, instance, created, **kwargs):
+def send_email(sender, instance, **kwargs):
 
     prefix = "[BIREME FEEDBACK]"
     TITLE_RESPONSIBLE = _("%s New feedback" % prefix)
@@ -15,6 +15,12 @@ def send_email(sender, instance, created, **kwargs):
     TITLE_FOLLOWUP = _("%s Your feedback was updated" % prefix)
 
     feedback = instance
+    created = False
+    try:
+        old = Feedback.objects.get(pk=feedback.id)
+    except:
+        created = True
+
     request = get_current_request()
     output = {
         'feedback': feedback,
@@ -37,10 +43,14 @@ def send_email(sender, instance, created, **kwargs):
         if feedback.creator.email:
             email = feedback.creator.email
             template = render_to_string("email/user.txt", output, context_instance=RequestContext(request)) 
-            title = TITLE_USER            
+            title = TITLE_USER    
+
+            from_ = settings.EMAIL_FROM
+            if feedback.application.responsible:
+                from_ = feedback.application.responsible
 
             try:
-                msg = EmailMessage(title, template, settings.EMAIL_FROM, [email])
+                msg = EmailMessage(title, template, from_, [email])
                 msg.content_subtype = "html"
                 msg.send()
             except Exception as e:
@@ -48,17 +58,21 @@ def send_email(sender, instance, created, **kwargs):
                 logger_logins.error(e)
 
     else:
-        if feedback.creator.email:
+        if feedback.creator.email and feedback.answer != old.answer:
             email = feedback.application.responsible
             template = render_to_string("email/followup.txt", output, context_instance=RequestContext(request)) 
             title = TITLE_FOLLOWUP
 
+            from_ = settings.EMAIL_FROM
+            if feedback.application.responsible:
+                from_ = feedback.application.responsible
+
             try:
-                msg = EmailMessage(title, template, settings.EMAIL_FROM, [email])
+                msg = EmailMessage(title, template, from_, [email])
                 msg.content_subtype = "html"
                 msg.send()
             except Exception as e:
                 logger_logins = logging.getLogger('logview.userlogins')
                 logger_logins.error(e)
 
-signals.post_save.connect(send_email, sender=Feedback, dispatch_uid="some.unique.string.id")
+signals.pre_save.connect(send_email, sender=Feedback, dispatch_uid="some.unique.string.id")

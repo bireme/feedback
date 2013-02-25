@@ -107,7 +107,7 @@ def show(request, feedback):
     feedback = get_object_or_404(Feedback, id=feedback) 
 
     if not feedback.is_active:
-        return Http404
+        raise Http404
 
     output['feedback'] = feedback
     return render_to_response('feedback/show.html', output, context_instance=RequestContext(request))

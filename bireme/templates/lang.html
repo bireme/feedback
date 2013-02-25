@@ -1,21 +1,31 @@
+{% load i18n %}
 <script>
-	function change_language(lang) {
-		var form = document.language;
-		form.language.value = lang;
-		form.submit();
-	}
+
+    function change_language(lang) {
+        if (lang == 'pt') {
+            lang = 'pt-BR';
+        }
+
+        var form = document.language;
+        form.language.value = lang;
+        form.submit();
+    }
 
     {% if request.GET.lang %}
         $(function(){
-            
             var lang = "{{ request.GET.lang }}";    
-            {% if not request.GET.lang == request.LANGUAGE_CODE %}
-                change_language(lang);
-            {% endif %}
-            
+            {% get_available_languages as LANGUAGES %}
+            {% for lang in LANGUAGES %}
+                {% if request.GET.lang == lang.0|slice:":2" and request.GET.lang != request.LANGUAGE_CODE|slice:":2" %}
+                    change_language(lang);
+                {% endif %}
+            {% endfor %}            
         });
     {% endif %}
+    
 </script>
+{{ LANGUAGES}}
+
 
 <form action="/i18n/setlang/" method="post" id="setlang" name="language">
     {% csrf_token %}

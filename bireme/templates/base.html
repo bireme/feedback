@@ -61,8 +61,13 @@
         
         <footer>
             <div class="container">
-                <strong>BIREME Feedback - <strong>v{% include "version.txt" %}</strong> - 2012</strong><br/>
-                Source code <a href="https://github.com/bireme/feedback">https://github.com/bireme/feedback</a>
+                <strong>BIREME Feedback - <strong>v{% include "version.txt" %}</strong> - 2012</strong> ({{ request.LANGUAGE_CODE }})<br/>
+                Source code <a href="https://github.com/bireme/feedback">https://github.com/bireme/feedback</a><br>
+                <div class="links">
+                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=0" title="{% trans "Send us a comment" %}">{% trans "Send us a comment" %}</a> |
+                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=1" title="{% trans "Report error" %}">{% trans "Report error" %}</a>
+                    
+                </div>
             </div>
         </footer>
 
