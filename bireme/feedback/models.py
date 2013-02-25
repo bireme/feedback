@@ -57,7 +57,6 @@ class Feedback(Generic):
     version = models.CharField(max_length=255, verbose_name=_("Version"), null=True, blank=True)
     ip = models.CharField(_("ip"), max_length=255)
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
-    hash = models.CharField(_('hash'), max_length=255)
     site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
     is_error = models.BooleanField(_("is a error?"))
     staff_comment = models.TextField(_("staff comment"), blank=True, null=True)
@@ -77,10 +76,6 @@ class Feedback(Generic):
         url = reverse('feedback.views.show', kwargs={'feedback': self.id})
 
         return "http://%s%s" % (request.META['HTTP_HOST'], url)
-
-def feedback_pre_save(signal, instance, sender, **kwargs):
-    instance.hash = md5.new(datetime.now().__str__()).hexdigest()
-signals.pre_save.connect(feedback_pre_save, sender=Feedback)
 
 class AditionalFeedback(Generic):
 
