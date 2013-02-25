@@ -135,6 +135,7 @@ INSTALLED_APPS = [
 
     'django_tools',
     'rosetta',
+    'south',
 
     'bireme.application',
     'bireme.feedback',
