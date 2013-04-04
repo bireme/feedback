@@ -12,6 +12,8 @@
 header {
 	margin-top: 1rem;
 	border-bottom: 1px solid #6693bb;
+	padding: 10px 0;
+	margin-bottom: 20px;
 }
 address {
 	font-size: .7rem;
@@ -102,4 +104,12 @@ footer {
 
 input[type=checkbox] {
 	margin: -3px 4px 0 0;
+}
+
+.content-index {
+	margin: 90px auto;
+	text-align: center;
+}
+.content-index .button {
+	margin: 40px 0;
 }
