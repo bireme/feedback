@@ -480,7 +480,7 @@ msgid "Email me"
 msgstr "Enviar por email"
 
 #: templates/base.html:17
-msgid "BIREME Feedback"
+msgid "Feedback Service"
 msgstr ""
 
 #: templates/base.html:46
