@@ -13,6 +13,9 @@ def index(request):
     if request.GET.get('q'):
         return redirect(reverse('feedback.views.show', kwargs={'feedback': request.GET.get('q')}))
 
+    if request.GET.get('application'):
+        application = get_object_or_404(Application, slug=request.GET.get('application'))
+
     return render_to_response('feedback/index.html', output, context_instance=RequestContext(request))        
 
 def first(request, software):

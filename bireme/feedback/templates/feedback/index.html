@@ -28,12 +28,12 @@
 
     <div class='content-index' id="menu">
 
-        {% if request.GET.service and request.GET.version %}
+        {% if request.GET.application and request.GET.version %}
             <div class='button'>
-                <a href='{% url feedback.views.first request.GET.service %}?version={{ request.GET.version }}&error=1' class='btn btn-large'>{% trans "Report a error" %}</a>
+                <a href='{% url feedback.views.first request.GET.application %}?version={{ request.GET.version }}&error=1' class='btn btn-large'>{% trans "Report a error" %}</a>
             </div>
             <div class='button'>
-                <a href='{% url feedback.views.first request.GET.service %}?version={{ request.GET.version }}' class='btn btn-large'>{% trans "Leave a comment" %}</a>
+                <a href='{% url feedback.views.first request.GET.application %}?version={{ request.GET.version }}' class='btn btn-large'>{% trans "Leave a comment" %}</a>
             </div>
         {% endif %}
         <div class='button'>
