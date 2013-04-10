@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-06 15:56-0200\n"
-"PO-Revision-Date: 2013-02-25 18:13\n"
+"POT-Creation-Date: 2013-04-10 16:23-0300\n"
+"PO-Revision-Date: 2013-04-10 16:30\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Translated-Using: django-rosetta 0.6.8\n"
+"X-Translated-Using: django-rosetta 0.6.6\n"
 
 #: account/models.py:15
 msgid "male"
@@ -214,7 +214,7 @@ msgstr ""
 "Com que propósito você usa um\n"
 "serviço ou produto da BVS?"
 
-#: feedback/forms.py:67 feedback/models.py:101
+#: feedback/forms.py:67 feedback/models.py:96
 msgid "Describe your purpose to use our applications"
 msgstr "Descreva o propósito de você usar nossas aplicações"
 
@@ -305,58 +305,54 @@ msgid "referer"
 msgstr "referência"
 
 #: feedback/models.py:60
-msgid "hash"
-msgstr ""
-
-#: feedback/models.py:61
 msgid "id site"
 msgstr ""
 
-#: feedback/models.py:62
+#: feedback/models.py:61
 msgid "is a error?"
 msgstr "erro?"
 
-#: feedback/models.py:63
+#: feedback/models.py:62
 msgid "staff comment"
 msgstr "comentário administrativo"
 
-#: feedback/models.py:65
+#: feedback/models.py:64
 msgid "answer"
 msgstr "resposta"
 
-#: feedback/models.py:88
+#: feedback/models.py:83
 msgid "Daily"
 msgstr "diariamente"
 
-#: feedback/models.py:89
+#: feedback/models.py:84
 msgid "Weekly"
 msgstr "semanalmente"
 
-#: feedback/models.py:90
+#: feedback/models.py:85
 msgid "Monthly"
 msgstr "mensalmente"
 
-#: feedback/models.py:91
+#: feedback/models.py:86
 msgid "Rarely"
 msgstr "raramente"
 
-#: feedback/models.py:95
+#: feedback/models.py:90
 msgid "aditional feedback"
 msgstr "feedback adicional"
 
-#: feedback/models.py:96
+#: feedback/models.py:91
 msgid "aditionals feedback"
 msgstr "feedbacks adicionais"
 
-#: feedback/models.py:98
+#: feedback/models.py:93
 msgid "What is the purpose of your search in VHL?"
 msgstr "Qual o seu propósito ao buscar na BVS?"
 
-#: feedback/models.py:99
+#: feedback/models.py:94
 msgid "Regular User?"
 msgstr "Você é um usuário regular?"
 
-#: feedback/models.py:100
+#: feedback/models.py:95
 msgid "how this site should work?"
 msgstr "Como você acha que este site deveria funcionar?"
 
@@ -368,7 +364,7 @@ msgstr "Seu email"
 msgid "Describe your sugestion:"
 msgstr "Descreva sua sugestão:"
 
-#: feedback/templates/feedback/first.html:25
+#: feedback/templates/feedback/first.html:18
 msgid ""
 "If you want to send any suggestion for improving this VHL site, service or "
 "product, please fill out the form. Your suggestion will be sent directly to "
@@ -378,19 +374,38 @@ msgstr ""
 "site, serviço ou produto da BVS, por favor preencha o formulário.\n"
 "Sua sugestão será enviada diretamente a BIREME."
 
-#: feedback/templates/feedback/first.html:31
-#: feedback/templates/feedback/index.html:9
+#: feedback/templates/feedback/first.html:26
+msgid ""
+"If you found some error or problem in this site or application, please fill "
+"in this form. Your feedback will be sent directly to BIREME."
+msgstr ""
+"Se você encontrou algum erro ou problema neste site  ou aplicativo, por "
+"favor preencha o formulário.  Seu feedback será enviado diretamente a "
+"BIREME."
+
+#: feedback/templates/feedback/first.html:32
+#: feedback/templates/feedback/index.html:25
 #: feedback/templates/feedback/second.html:41
 msgid "Submit"
 msgstr "Enviar"
 
-#: feedback/templates/feedback/index.html:5
-msgid "Search"
-msgstr "Busca"
-
-#: feedback/templates/feedback/index.html:7
+#: feedback/templates/feedback/index.html:23
 msgid "Insert feedback ID"
 msgstr "Insira o ID do feedback"
+
+#: feedback/templates/feedback/index.html:33
+#, fuzzy
+msgid "Report a error"
+msgstr "Reporte um erro"
+
+#: feedback/templates/feedback/index.html:36
+#, fuzzy
+msgid "Leave a comment"
+msgstr "Envie-nos um comentário"
+
+#: feedback/templates/feedback/index.html:40
+msgid "Check your issue"
+msgstr "Consultar solicitação"
 
 #: feedback/templates/feedback/second.html:26
 msgid "Preencha com seu email"
@@ -472,25 +487,21 @@ msgstr ""
 msgid "Email me"
 msgstr "Enviar por email"
 
-#: templates/base.html:17
+#: templates/base.html:17 templates/base.html.py:47
 msgid "Feedback Service"
-msgstr ""
+msgstr "Serviço de Feedback"
 
 #: templates/base.html:46
 msgid "BIREME/OPAS/OMS"
 msgstr ""
 
-#: templates/base.html:47
-msgid "Feedback Service"
-msgstr "Serviço de Feedback"
+#: templates/base.html:66
+msgid "Send us a comment"
+msgstr "Enviar um comentário"
 
 #: templates/base.html:67
-msgid "Send us a comment"
-msgstr "Envie-nos um comentário"
-
-#: templates/base.html:68
-msgid "Report error"
-msgstr "Reporte um erro"
+msgid "Report an error"
+msgstr "Comunicar um erro"
 
 #: util/models.py:8
 msgid "country"
@@ -503,3 +514,9 @@ msgstr "Países"
 #: util/models.py:12
 msgid "code"
 msgstr "Código"
+
+#~ msgid "Report error"
+#~ msgstr "Reporte um erro"
+
+#~ msgid "Search"
+#~ msgstr "Busca"

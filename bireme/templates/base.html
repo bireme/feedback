@@ -63,8 +63,8 @@
             <div class="container">
                 <strong>Feedback Service - <strong>v{% include "version.txt" %}</strong> - 2012</strong> ({{ request.LANGUAGE_CODE }})<br/>
                 <div class="links">
-                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=0" title="{% trans "Send us a comment" %}">{% trans "Send us a comment" %}</a> |
-                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=1" title="{% trans "Report error" %}">{% trans "Report error" %}</a>
+                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=0&lang={{ request.LANGUAGE_CODE|slice:'2' }}" title="{% trans "Send us a comment" %}">{% trans "Send us a comment" %}</a> |
+                    <a href="{% url feedback.views.first 'feedback' %}?version=0.5&error=1&lang={{ request.LANGUAGE_CODE|slice:'2' }}" title="{% trans "Report an error" %}">{% trans "Report an error" %}</a>
                     
                 </div>
             </div>

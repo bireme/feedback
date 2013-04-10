@@ -15,6 +15,7 @@
             $("#id_is_blocker").hide();
             
             $("label[for=id_problem]").html("{% trans "Describe your sugestion:" %}");
+            $(".disclaimer").html("{% trans 'If you want to send any suggestion for improving this VHL site, service or product, please fill out the form. Your suggestion will be sent directly to BIREME' %}");
         {% endif %}
     });
 </script>
@@ -22,7 +23,7 @@
 <form method="POST" action="{% url feedback.views.first software.slug %}">{% csrf_token %}
     
     <div class="disclaimer">
-        * {% trans "If you want to send any suggestion for improving this VHL site, service or product, please fill out the form. Your suggestion will be sent directly to BIREME" %}.
+        {% trans "If you found some error or problem in this site or application, please fill in this form. Your feedback will be sent directly to BIREME." %}.
     </div>
 
     <fieldset class="feedbackForm">
