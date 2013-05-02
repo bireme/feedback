@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-10 16:23-0300\n"
-"PO-Revision-Date: 2013-04-10 16:30\n"
+"POT-Creation-Date: 2013-05-02 10:46-0300\n"
+"PO-Revision-Date: 2013-05-02 10:48\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -394,14 +394,12 @@ msgid "Insert feedback ID"
 msgstr "Insira o ID do feedback"
 
 #: feedback/templates/feedback/index.html:33
-#, fuzzy
 msgid "Report a error"
-msgstr "Reporte um erro"
+msgstr "Comunicar um erro"
 
-#: feedback/templates/feedback/index.html:36
-#, fuzzy
+#: feedback/templates/feedback/index.html:36 templates/base.html:66
 msgid "Leave a comment"
-msgstr "Envie-nos um comentário"
+msgstr "Enviar um comentário"
 
 #: feedback/templates/feedback/index.html:40
 msgid "Check your issue"
@@ -495,10 +493,6 @@ msgstr "Serviço de Feedback"
 msgid "BIREME/OPAS/OMS"
 msgstr ""
 
-#: templates/base.html:66
-msgid "Send us a comment"
-msgstr "Enviar um comentário"
-
 #: templates/base.html:67
 msgid "Report an error"
 msgstr "Comunicar um erro"
@@ -514,6 +508,9 @@ msgstr "Países"
 #: util/models.py:12
 msgid "code"
 msgstr "Código"
+
+#~ msgid "Send us a comment"
+#~ msgstr "Enviar um comentário"
 
 #~ msgid "Report error"
 #~ msgstr "Reporte um erro"

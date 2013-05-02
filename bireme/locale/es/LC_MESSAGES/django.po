@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-10 16:23-0300\n"
-"PO-Revision-Date: 2013-04-10 16:39\n"
+"POT-Creation-Date: 2013-05-02 10:46-0300\n"
+"PO-Revision-Date: 2013-05-02 10:49\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -403,11 +403,11 @@ msgstr ""
 
 #: feedback/templates/feedback/index.html:33
 msgid "Report a error"
-msgstr ""
+msgstr "Reportar un error"
 
-#: feedback/templates/feedback/index.html:36
+#: feedback/templates/feedback/index.html:36 templates/base.html:66
 msgid "Leave a comment"
-msgstr ""
+msgstr "Enviar un comentario"
 
 #: feedback/templates/feedback/index.html:40
 msgid "Check your issue"
@@ -500,10 +500,6 @@ msgstr "Servicio de Feedback"
 msgid "BIREME/OPAS/OMS"
 msgstr ""
 
-#: templates/base.html:66
-msgid "Send us a comment"
-msgstr "Enviar un comentario"
-
 #: templates/base.html:67
 msgid "Report an error"
 msgstr "Reportar un error"
@@ -519,6 +515,9 @@ msgstr ""
 #: util/models.py:12
 msgid "code"
 msgstr ""
+
+#~ msgid "Send us a comment"
+#~ msgstr "Enviar un comentario"
 
 #~ msgid "Search"
 #~ msgstr "Búsqueda"
