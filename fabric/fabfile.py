@@ -4,6 +4,7 @@ from fabric.api import env, local, settings, abort, run, cd
 from fabric.operations import local, put, sudo, get
 from fabric.context_managers import prefix
 from environment import *
+from tunnel import *
 
 def locale():
     """
@@ -85,6 +86,10 @@ def update():
 
     update_version_file()
     restart_app()
+
+def prod_update(username):
+    with make_tunnel('%s@pr20dx:8022' % username) as t:
+        update()        
 
 def full_update():
     """
