@@ -49,8 +49,12 @@ class Feedback(Generic):
         
         request = get_current_request()
         url = reverse('feedback.views.show', kwargs={'feedback': self.id})
+        url = "http://%s%s" % (request.META['HTTP_HOST'], url)
 
-        return "http://%s%s" % (request.META['HTTP_HOST'], url)
+        if ":3001" in url:
+            url = url.replace(":3001", "")
+
+        return url
 
 class AditionalFeedback(Generic):
 
