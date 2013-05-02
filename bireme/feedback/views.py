@@ -64,7 +64,6 @@ def second(request, feedback):
 
     output = {}
     feedback = get_object_or_404(Feedback, id=feedback)
-    another = Objective.objects.filter(is_another=True)[0]
 
     initial_data = {
         "feedback": feedback.id,
@@ -82,7 +81,6 @@ def second(request, feedback):
 
             return redirect(reverse("feedback_thanks2", kwargs={'feedback': feedback.id}))
 
-    output['another'] = another
     output['form'] = form
     output['feedback'] = feedback
 

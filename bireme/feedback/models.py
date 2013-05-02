@@ -7,31 +7,6 @@ from util.models import *
 from django.db import models
 import md5
 
-class Objective(Generic):
-
-    class Meta:
-        verbose_name = _("objective")
-        verbose_name_plural = _("objectives")
-
-    title = models.CharField(_("objective"), max_length=255)
-    is_another = models.BooleanField(_("Is another?"))
-
-    def __unicode__(self):
-        return unicode(self.title)    
-
-class SimilarSite(Generic):
-    """ Sites similares """
-
-    class Meta:
-        verbose_name = _("similar site")
-        verbose_name_plural = _("similar sites")
-
-    feedback = models.ForeignKey("Feedback")
-    url = models.URLField(_("address"))
-
-    def __unicode__(self):
-        return unicode(self.url)
-
 class Category(Generic):
     """ Categories who selected by admin """
 
@@ -86,11 +61,20 @@ class AditionalFeedback(Generic):
         ('rarely', _('Rarely')),
     )
 
+    OBJECTIVE_CHOICES = (
+        ('personal', _("Personal")),
+        ('politic decision', _("Politic Decision")),
+        ('clinic decision', _("Clinic Decision")),
+        ('personal updating', _("Personal Updating")),
+        ('cientific research', _("Cientific Research")),
+        ('another', _("Another")),
+    )
+
     class Meta:
         verbose_name = _("aditional feedback")
         verbose_name_plural = _("aditionals feedback")
 
-    objective = models.ForeignKey(Objective, null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"))
+    objective = models.CharField(null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"), choices=OBJECTIVE_CHOICES, max_length=255)
     regular_user = models.CharField(_("Regular User?"), blank=True, null=True, choices=REGULAR_CHOICES, max_length=255)
     how_should_work = models.TextField(_("how this site should work?"), null=True, blank=True)
     another_objective = models.CharField(_("Describe your purpose to use our applications"), max_length=255, blank=True, null=True)

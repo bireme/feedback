@@ -8,9 +8,6 @@ class GenericAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'creator', 'created']
     search_fields  = ['__unicode__',]
     
-
-admin.site.register(Objective, GenericAdmin)
-admin.site.register(SimilarSite, GenericAdmin)
 admin.site.register(Feedback, GenericAdmin)
 admin.site.register(AditionalFeedback, GenericAdmin)
 admin.site.register(Category, GenericAdmin)

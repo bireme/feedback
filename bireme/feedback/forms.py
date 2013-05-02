@@ -63,7 +63,7 @@ class FirstForm(forms.Form):
 class SecondForm(forms.Form):
     
     feedback = forms.CharField(widget=forms.HiddenInput(), required=True)
-    objective = forms.ModelChoiceField(queryset=Objective.objects.all(), label=_("For what purpose you use a VHL service or product?"), required=False)
+    objective = forms.ChoiceField(choices=AditionalFeedback.OBJECTIVE_CHOICES, label=_("For what purpose you use a VHL service or product?"), required=False)
     another_objective = forms.CharField(label=_("Describe your purpose to use our applications"), required=False)
     regular_user = forms.ChoiceField(label=_("How often do you use a VHL service or product?"), required=False, choices=AditionalFeedback.REGULAR_CHOICES)
 
