@@ -67,8 +67,8 @@ def restart_app():
     """
         Restarts remote wsgi.
     """
-    with cd(os.path.join(env.path,'..')):
-        run("touch application.wsgi")
+    with cd(os.path.join(env.gitpath ,'tools')):
+        run("./restart.sh")
 
 def update_version_file():
     with cd(env.rootpath):
