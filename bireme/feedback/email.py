@@ -9,7 +9,7 @@ from models import *
 
 def send_email(sender, instance, **kwargs):
 
-    prefix = "[Feedback Service]"
+    prefix = _("[Feedback Service]")
     TITLE_RESPONSIBLE = _("%s New feedback" % prefix)
     TITLE_USER = _("%s Feedback was registered" % prefix)
     TITLE_FOLLOWUP = _("%s Your feedback was updated" % prefix)

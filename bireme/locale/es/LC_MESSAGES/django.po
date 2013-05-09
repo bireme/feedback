@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 10:46-0300\n"
-"PO-Revision-Date: 2013-05-02 10:49\n"
+"POT-Creation-Date: 2013-05-09 17:26-0300\n"
+"PO-Revision-Date: 2013-05-09 17:52\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,18 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.6\n"
+
+#: account/models.py:9
+msgid "less than 30"
+msgstr "Menos de 30 años"
+
+#: account/models.py:10
+msgid "between 30 and 45"
+msgstr "Entre 30 y 45 años"
+
+#: account/models.py:11
+msgid "more than 45"
+msgstr "Mas de 45 años"
 
 #: account/models.py:15
 msgid "male"
@@ -181,6 +193,14 @@ msgstr ""
 msgid "%.1f min"
 msgstr ""
 
+#: feedback/admin.py:23
+msgid "Has Answer?"
+msgstr ""
+
+#: feedback/email.py:12
+msgid "[Feedback Service]"
+msgstr "[Servicio de Feedback]"
+
 #: feedback/email.py:13
 #, python-format
 msgid "%s New feedback"
@@ -198,7 +218,7 @@ msgstr ""
 
 #: feedback/forms.py:13
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: feedback/forms.py:14
 msgid "Describe the problem:"
@@ -214,7 +234,7 @@ msgstr ""
 "¿Con qué fin se utiliza un servicio o\n"
 "producto VHL?"
 
-#: feedback/forms.py:67 feedback/models.py:96
+#: feedback/forms.py:67 feedback/models.py:87
 msgid "Describe your purpose to use our applications"
 msgstr ""
 
@@ -244,123 +264,135 @@ msgstr "¿Cuántos años tienes?"
 msgid "Do you have any comment to make?"
 msgstr "¿Tienes algún comentario que hacer?"
 
-#: feedback/models.py:13 feedback/models.py:16
-msgid "objective"
-msgstr ""
-
-#: feedback/models.py:14
-msgid "objectives"
-msgstr ""
-
-#: feedback/models.py:17
-msgid "Is another?"
-msgstr ""
-
-#: feedback/models.py:26
-msgid "similar site"
-msgstr ""
-
-#: feedback/models.py:27
-msgid "similar sites"
-msgstr ""
-
-#: feedback/models.py:30
-msgid "address"
-msgstr ""
-
-#: feedback/models.py:39 feedback/models.py:42
+#: feedback/models.py:14 feedback/models.py:17
 msgid "category"
 msgstr ""
 
-#: feedback/models.py:40
+#: feedback/models.py:15
 msgid "categories"
 msgstr ""
 
-#: feedback/models.py:50
+#: feedback/models.py:25
 msgid "feedback"
 msgstr ""
 
-#: feedback/models.py:51
+#: feedback/models.py:26
 msgid "feedbacks"
 msgstr ""
 
-#: feedback/models.py:54
+#: feedback/models.py:29
 msgid "problem"
 msgstr ""
 
-#: feedback/models.py:55
+#: feedback/models.py:30
 msgid "is blocker error?"
 msgstr ""
 
-#: feedback/models.py:56
+#: feedback/models.py:31
 msgid "Software"
 msgstr ""
 
-#: feedback/models.py:57
+#: feedback/models.py:32
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
-#: feedback/models.py:58
+#: feedback/models.py:33
 msgid "ip"
-msgstr ""
+msgstr "ip"
 
-#: feedback/models.py:59
+#: feedback/models.py:34
 msgid "referer"
 msgstr ""
 
-#: feedback/models.py:60
+#: feedback/models.py:35
 msgid "id site"
-msgstr ""
+msgstr "ID Site"
 
-#: feedback/models.py:61
+#: feedback/models.py:36
 msgid "is a error?"
-msgstr ""
+msgstr "¿és un error?"
 
-#: feedback/models.py:62
+#: feedback/models.py:37
 msgid "staff comment"
 msgstr ""
 
-#: feedback/models.py:64
+#: feedback/models.py:39
 msgid "answer"
-msgstr ""
+msgstr "Respuesta"
 
-#: feedback/models.py:83
-msgid "Daily"
-msgstr ""
+#: feedback/models.py:62
+msgid "Once a week"
+msgstr "Una vez a la semana"
 
-#: feedback/models.py:84
-msgid "Weekly"
-msgstr ""
+#: feedback/models.py:63
+msgid "Twice a month"
+msgstr "Dos veces al mes"
 
-#: feedback/models.py:85
-msgid "Monthly"
-msgstr ""
+#: feedback/models.py:64
+msgid "Once a month"
+msgstr "Uma vez al mes"
 
-#: feedback/models.py:86
+#: feedback/models.py:65
+msgid "Once in a while"
+msgstr "De vez en cuando"
+
+#: feedback/models.py:66
 msgid "Rarely"
-msgstr ""
+msgstr "Raravez"
 
-#: feedback/models.py:90
+#: feedback/models.py:70
+msgid "Professional training/Study"
+msgstr "Formación profesional /Estudio"
+
+#: feedback/models.py:71
+msgid "Academic /Teaching"
+msgstr "Académica/Docencia"
+
+#: feedback/models.py:72
+msgid "Scientific research"
+msgstr "Investigación Científica"
+
+#: feedback/models.py:73
+msgid "Healthcare"
+msgstr "Atención clínica"
+
+#: feedback/models.py:74
+msgid "Decision making"
+msgstr "Toma de decisión"
+
+#: feedback/models.py:75
+msgid "Project management"
+msgstr "Gestión de proyectos"
+
+#: feedback/models.py:76
+msgid "Knowledge /Information management"
+msgstr "Gestión del conocimiento/Información"
+
+#: feedback/models.py:77
+msgid "Bibliographic search"
+msgstr "Búsqueda bibliográfica"
+
+#: feedback/models.py:81
 msgid "aditional feedback"
 msgstr ""
 
-#: feedback/models.py:91
+#: feedback/models.py:82
 msgid "aditionals feedback"
 msgstr ""
 
-#: feedback/models.py:93
-msgid "What is the purpose of your search in VHL?"
+#: feedback/models.py:84
+msgid "What your primary interest for using a VHL service or product?"
 msgstr ""
 "¿Con qué fin se utiliza un servicio o\n"
 "producto VHL?"
 
-#: feedback/models.py:94
+#: feedback/models.py:85
 msgid "Regular User?"
 msgstr ""
 "¿Con qué frecuencia se utiliza un\n"
 "servicio o producto de la BVS?"
 
-#: feedback/models.py:95
+#: feedback/models.py:86
 msgid "how this site should work?"
 msgstr ""
 
@@ -419,7 +451,7 @@ msgstr ""
 
 #: feedback/templates/feedback/show.html:15
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 #: feedback/templates/feedback/show.html:48
 #: feedback/templates/feedback/thanks2.html:21
@@ -498,7 +530,7 @@ msgstr "Servicio de Feedback"
 
 #: templates/base.html:46
 msgid "BIREME/OPAS/OMS"
-msgstr ""
+msgstr "BIREME/OPAS/OMS"
 
 #: templates/base.html:67
 msgid "Report an error"
@@ -506,15 +538,20 @@ msgstr "Reportar un error"
 
 #: util/models.py:8
 msgid "country"
-msgstr ""
+msgstr "País"
 
 #: util/models.py:9
 msgid "countries"
-msgstr ""
+msgstr "Países"
 
 #: util/models.py:12
 msgid "code"
 msgstr ""
+
+#~ msgid "What is the purpose of your search in VHL?"
+#~ msgstr ""
+#~ "¿Con qué fin se utiliza un servicio o\n"
+#~ "producto VHL?"
 
 #~ msgid "Send us a comment"
 #~ msgstr "Enviar un comentario"

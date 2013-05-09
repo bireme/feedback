@@ -6,9 +6,9 @@ from util.models import *
 class UserProfile(models.Model):
 
     AGE_CHOICES = (
-        ('30', "less than 30"),
-        ('between 30 and 45', "between 30 and 45"),
-        ("more than 45", "more than 45"),
+        ('30', _("less than 30")),
+        ('between 30 and 45', _("between 30 and 45")),
+        ("more than 45", _("more than 45")),
     )
 
     GENDER_CHOICES = (

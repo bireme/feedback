@@ -23,8 +23,8 @@
             </p>
 
             <div class="control-group">            
-                <a href="{% url feedback_thanks2 feedback.id %}" title="{% trans "No, thank's" %}" class="btn btn-danger">{% trans "No, thank's" %}</a>
                 <a href="{% url feedback_second feedback.id %}" class="btn btn-success">{% trans "Yes" %}</a>
+                <a href="{% url feedback_thanks2 feedback.id %}" title="{% trans "No, thank's" %}" class="btn btn-danger">{% trans "No, thank's" %}</a>
             </div>
         </fieldset>
     </form>

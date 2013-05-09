@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-02 10:46-0300\n"
-"PO-Revision-Date: 2013-05-02 11:43\n"
+"POT-Creation-Date: 2013-05-09 17:26-0300\n"
+"PO-Revision-Date: 2013-05-09 17:52\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,18 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "X-Translated-Using: django-rosetta 0.6.6\n"
+
+#: account/models.py:9
+msgid "less than 30"
+msgstr "menos que 30"
+
+#: account/models.py:10
+msgid "between 30 and 45"
+msgstr "entre 30 e 45"
+
+#: account/models.py:11
+msgid "more than 45"
+msgstr "mais de 45"
 
 #: account/models.py:15
 msgid "male"
@@ -181,6 +193,14 @@ msgstr ""
 msgid "%.1f min"
 msgstr ""
 
+#: feedback/admin.py:23
+msgid "Has Answer?"
+msgstr "Possui Resposta?"
+
+#: feedback/email.py:12
+msgid "[Feedback Service]"
+msgstr "[Serviço de Feedback]"
+
 #: feedback/email.py:13
 #, python-format
 msgid "%s New feedback"
@@ -214,7 +234,7 @@ msgstr ""
 "Com que propósito você usa um\n"
 "serviço ou produto da BVS?"
 
-#: feedback/forms.py:67 feedback/models.py:96
+#: feedback/forms.py:67 feedback/models.py:87
 msgid "Describe your purpose to use our applications"
 msgstr "Descreva o propósito de você usar nossas aplicações"
 
@@ -240,119 +260,133 @@ msgstr "Quantos anos você tem?"
 msgid "Do you have any comment to make?"
 msgstr "Você possui algum comentário a fazer?"
 
-#: feedback/models.py:13 feedback/models.py:16
-msgid "objective"
-msgstr "objetivo"
-
-#: feedback/models.py:14
-msgid "objectives"
-msgstr "objetivos"
-
-#: feedback/models.py:17
-msgid "Is another?"
-msgstr "outro?"
-
-#: feedback/models.py:26
-msgid "similar site"
-msgstr "site similar"
-
-#: feedback/models.py:27
-msgid "similar sites"
-msgstr "sites similares"
-
-#: feedback/models.py:30
-msgid "address"
-msgstr "endereço"
-
-#: feedback/models.py:39 feedback/models.py:42
+#: feedback/models.py:14 feedback/models.py:17
 msgid "category"
 msgstr "categoria"
 
-#: feedback/models.py:40
+#: feedback/models.py:15
 msgid "categories"
 msgstr "categorias"
 
-#: feedback/models.py:50
+#: feedback/models.py:25
 msgid "feedback"
-msgstr ""
+msgstr "feedback"
 
-#: feedback/models.py:51
+#: feedback/models.py:26
 msgid "feedbacks"
-msgstr ""
+msgstr "feedbacks"
 
-#: feedback/models.py:54
+#: feedback/models.py:29
 msgid "problem"
 msgstr "problema"
 
-#: feedback/models.py:55
+#: feedback/models.py:30
 msgid "is blocker error?"
 msgstr "erro blocker?"
 
-#: feedback/models.py:56
+#: feedback/models.py:31
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
-#: feedback/models.py:57
+#: feedback/models.py:32
 msgid "Version"
 msgstr "versão"
 
-#: feedback/models.py:58
+#: feedback/models.py:33
 msgid "ip"
-msgstr ""
+msgstr "ip"
 
-#: feedback/models.py:59
+#: feedback/models.py:34
 msgid "referer"
 msgstr "referência"
 
-#: feedback/models.py:60
+#: feedback/models.py:35
 msgid "id site"
-msgstr ""
+msgstr "ID do Site"
 
-#: feedback/models.py:61
+#: feedback/models.py:36
 msgid "is a error?"
 msgstr "erro?"
 
-#: feedback/models.py:62
+#: feedback/models.py:37
 msgid "staff comment"
 msgstr "comentário administrativo"
 
-#: feedback/models.py:64
+#: feedback/models.py:39
 msgid "answer"
 msgstr "resposta"
 
-#: feedback/models.py:83
-msgid "Daily"
-msgstr "diariamente"
+#: feedback/models.py:62
+msgid "Once a week"
+msgstr "Uma vez por semana"
 
-#: feedback/models.py:84
-msgid "Weekly"
-msgstr "semanalmente"
+#: feedback/models.py:63
+msgid "Twice a month"
+msgstr "Duas vezes ao mês"
 
-#: feedback/models.py:85
-msgid "Monthly"
-msgstr "mensalmente"
+#: feedback/models.py:64
+msgid "Once a month"
+msgstr "Uma vês ao mês"
 
-#: feedback/models.py:86
+#: feedback/models.py:65
+msgid "Once in a while"
+msgstr "De vez em quando"
+
+#: feedback/models.py:66
 msgid "Rarely"
-msgstr "raramente"
+msgstr "Raramente"
 
-#: feedback/models.py:90
+#: feedback/models.py:70
+msgid "Professional training/Study"
+msgstr "Formação profissional/Estudo"
+
+#: feedback/models.py:71
+msgid "Academic /Teaching"
+msgstr "Docência/Educação"
+
+#: feedback/models.py:72
+msgid "Scientific research"
+msgstr "Investigação/Pesquisa Científica"
+
+#: feedback/models.py:73
+msgid "Healthcare"
+msgstr "Atenção Clínica"
+
+#: feedback/models.py:74
+msgid "Decision making"
+msgstr "Tomada de Decisão"
+
+#: feedback/models.py:75
+msgid "Project management"
+msgstr "Gestão de projetos"
+
+#: feedback/models.py:76
+msgid "Knowledge /Information management"
+msgstr "Gestão de Conhecimento/informação"
+
+#: feedback/models.py:77
+msgid "Bibliographic search"
+msgstr "Pesquisa Bibliográfica"
+
+#: feedback/models.py:81
 msgid "aditional feedback"
 msgstr "feedback adicional"
 
-#: feedback/models.py:91
+#: feedback/models.py:82
 msgid "aditionals feedback"
 msgstr "feedbacks adicionais"
 
-#: feedback/models.py:93
-msgid "What is the purpose of your search in VHL?"
-msgstr "Qual o seu propósito ao buscar na BVS?"
+#: feedback/models.py:84
+msgid "What your primary interest for using a VHL service or product?"
+msgstr ""
+"Com que propósito você usa um\n"
+"serviço ou produto da BVS?"
 
-#: feedback/models.py:94
+#: feedback/models.py:85
 msgid "Regular User?"
 msgstr "Você é um usuário regular?"
 
-#: feedback/models.py:95
+#: feedback/models.py:86
 msgid "how this site should work?"
 msgstr "Como você acha que este site deveria funcionar?"
 
@@ -491,7 +525,7 @@ msgstr "Serviço de Feedback"
 
 #: templates/base.html:46
 msgid "BIREME/OPAS/OMS"
-msgstr ""
+msgstr "BIREME/OPAS/OMS"
 
 #: templates/base.html:67
 msgid "Report an error"
@@ -508,6 +542,36 @@ msgstr "Países"
 #: util/models.py:12
 msgid "code"
 msgstr "Código"
+
+#~ msgid "Daily"
+#~ msgstr "diariamente"
+
+#~ msgid "Weekly"
+#~ msgstr "semanalmente"
+
+#~ msgid "Monthly"
+#~ msgstr "mensalmente"
+
+#~ msgid "Another"
+#~ msgstr "outro?"
+
+#~ msgid "What is the purpose of your search in VHL?"
+#~ msgstr "Qual o seu propósito ao buscar na BVS?"
+
+#~ msgid "objective"
+#~ msgstr "objetivo"
+
+#~ msgid "objectives"
+#~ msgstr "objetivos"
+
+#~ msgid "similar site"
+#~ msgstr "site similar"
+
+#~ msgid "similar sites"
+#~ msgstr "sites similares"
+
+#~ msgid "address"
+#~ msgstr "endereço"
 
 #~ msgid "Send us a comment"
 #~ msgstr "Enviar um comentário"

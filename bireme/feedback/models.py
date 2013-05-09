@@ -59,26 +59,29 @@ class Feedback(Generic):
 class AditionalFeedback(Generic):
 
     REGULAR_CHOICES = (
-        ('daily', _('Daily')),
-        ('weekly', _('Weekly')),
-        ('monthly', _('Monthly')),
-        ('rarely', _('Rarely')),
+        ('1', _('Once a week')),
+        ('2', _('Twice a month')),
+        ('3', _('Once a month')),
+        ('4', _('Once in a while')),
+        ('5', _('Rarely')),
     )
 
     OBJECTIVE_CHOICES = (
-        ('personal', _("Personal")),
-        ('politic decision', _("Politic Decision")),
-        ('clinic decision', _("Clinic Decision")),
-        ('personal updating', _("Personal Updating")),
-        ('cientific research', _("Cientific Research")),
-        ('another', _("Another")),
+        ('1', _("Professional training/Study")),
+        ('2', _("Academic /Teaching")),
+        ('3', _("Scientific research")),
+        ('4', _("Healthcare")),
+        ('5', _("Decision making")),
+        ('6', _("Project management")),
+        ('7', _("Knowledge /Information management")),
+        ('8', _("Bibliographic search")),
     )
 
     class Meta:
         verbose_name = _("aditional feedback")
         verbose_name_plural = _("aditionals feedback")
 
-    objective = models.CharField(null=True, blank=True, verbose_name=_("What is the purpose of your search in VHL?"), choices=OBJECTIVE_CHOICES, max_length=255)
+    objective = models.CharField(null=True, blank=True, verbose_name=_("What your primary interest for using a VHL service or product?"), choices=OBJECTIVE_CHOICES, max_length=255)
     regular_user = models.CharField(_("Regular User?"), blank=True, null=True, choices=REGULAR_CHOICES, max_length=255)
     how_should_work = models.TextField(_("how this site should work?"), null=True, blank=True)
     another_objective = models.CharField(_("Describe your purpose to use our applications"), max_length=255, blank=True, null=True)
