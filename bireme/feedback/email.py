@@ -7,20 +7,13 @@ from django.db.models import signals
 from django.conf import settings
 from models import *
 
-def send_email(sender, instance, **kwargs):
+def send_email(sender, instance, created, **kwargs):
 
-    prefix = _("[Feedback Service]")
-    TITLE_RESPONSIBLE = _("%s New feedback" % prefix)
-    TITLE_USER = _("%s Feedback was registered" % prefix)
-    TITLE_FOLLOWUP = _("%s Your feedback was updated" % prefix)
+    TITLE_RESPONSIBLE = _("[Feedback Service] New feedback")
+    TITLE_USER = _("[Feedback Service] Feedback was registered")
+    TITLE_FOLLOWUP = _("[Feedback Service] Your feedback was updated")
 
     feedback = instance
-    created = False
-    try:
-        old = Feedback.objects.get(pk=feedback.id)
-    except:
-        created = True
-
     request = get_current_request()
     output = {
         'feedback': feedback,
@@ -29,7 +22,7 @@ def send_email(sender, instance, **kwargs):
     if created:
         if feedback.application.responsible:
             email = feedback.application.responsible
-            template = render_to_string("email/responsible.txt", output, context_instance=RequestContext(request)) 
+            template = render_to_string("email/responsible.html", output, context_instance=RequestContext(request)) 
             title = TITLE_RESPONSIBLE
 
             try:
@@ -42,7 +35,7 @@ def send_email(sender, instance, **kwargs):
 
         if feedback.creator.email:
             email = feedback.creator.email
-            template = render_to_string("email/user.txt", output, context_instance=RequestContext(request)) 
+            template = render_to_string("email/user.html", output, context_instance=RequestContext(request)) 
             title = TITLE_USER    
 
             from_ = settings.EMAIL_FROM
@@ -60,7 +53,7 @@ def send_email(sender, instance, **kwargs):
     else:
         if feedback.creator.email and feedback.answer != old.answer:
             email = feedback.application.responsible
-            template = render_to_string("email/followup.txt", output, context_instance=RequestContext(request)) 
+            template = render_to_string("email/followup.html", output, context_instance=RequestContext(request)) 
             title = TITLE_FOLLOWUP
 
             from_ = settings.EMAIL_FROM
@@ -75,4 +68,4 @@ def send_email(sender, instance, **kwargs):
                 logger_logins = logging.getLogger('logview.userlogins')
                 logger_logins.error(e)
 
-signals.pre_save.connect(send_email, sender=Feedback, dispatch_uid="some.unique.string.id")
+signals.post_save.connect(send_email, sender=Feedback, dispatch_uid="some.unique.string.id")

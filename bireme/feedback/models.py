@@ -46,10 +46,13 @@ class Feedback(Generic):
         return unicode(problem)
     
     def get_absolute_url(self):
-        
-        request = get_current_request()
-        url = reverse('feedback.views.show', kwargs={'feedback': self.id})
-        url = "http://%s%s" % (request.META['HTTP_HOST'], url)
+        url = ""
+        try:
+            request = get_current_request()
+            url = reverse('feedback.views.show', kwargs={'feedback': self.id})
+            url = "http://%s%s" % (request.META['HTTP_HOST'], url)
+        except Exception as e:
+            pass
 
         if ":3001" in url:
             url = url.replace(":3001", "")

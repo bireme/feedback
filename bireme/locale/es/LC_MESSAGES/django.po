@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 17:26-0300\n"
-"PO-Revision-Date: 2013-05-09 17:52\n"
+"POT-Creation-Date: 2013-05-09 18:04-0300\n"
+"PO-Revision-Date: 2013-05-09 18:08\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -198,22 +198,15 @@ msgid "Has Answer?"
 msgstr ""
 
 #: feedback/email.py:12
-msgid "[Feedback Service]"
-msgstr "[Servicio de Feedback]"
+msgid "[Feedback Service] New feedback"
+msgstr "[Servicio de Feedback] Nuevo Feedback"
 
 #: feedback/email.py:13
-#, python-format
-msgid "%s New feedback"
-msgstr "%s Nuevo feedback"
+msgid "[Feedback Service] Feedback was registered"
+msgstr "[Servicio de Feedback] Feedback registrado"
 
 #: feedback/email.py:14
-#, python-format
-msgid "%s Feedback was registered"
-msgstr ""
-
-#: feedback/email.py:15
-#, python-format
-msgid "%s Your feedback was updated"
+msgid "[Feedback Service] Your feedback was updated"
 msgstr ""
 
 #: feedback/forms.py:13
@@ -495,12 +488,12 @@ msgid "Could you answer five quick questions?"
 msgstr "¿Tu podrías responder a cinco preguntas rápidas?"
 
 #: feedback/templates/feedback/thanks.html:26
-msgid "No, thank's"
-msgstr "No, gracias"
-
-#: feedback/templates/feedback/thanks.html:27
 msgid "Yes"
 msgstr "Si, con gusto"
+
+#: feedback/templates/feedback/thanks.html:27
+msgid "No, thank's"
+msgstr "No, gracias"
 
 #: feedback/templates/feedback/thanks2.html:11
 msgid ""
@@ -536,6 +529,35 @@ msgstr "BIREME/OPAS/OMS"
 msgid "Report an error"
 msgstr "Reportar un error"
 
+#: templates/email/followup.html:3 templates/email/user.html:3
+msgid "Hello User"
+msgstr "Hola,"
+
+#: templates/email/followup.html:5
+msgid "Your solicitation was updated."
+msgstr ""
+
+#: templates/email/followup.html:7
+msgid "Please check the link below"
+msgstr ""
+
+#: templates/email/followup.html:10 templates/email/responsible.html:7
+#: templates/email/user.html:11
+msgid "Regards"
+msgstr "Atentamente"
+
+#: templates/email/user.html:5
+msgid "Your solicitation was opened in our system."
+msgstr " Su solicitud fue abierta in nuestro sistema."
+
+#: templates/email/user.html:6
+msgid "Soon, you will have an answer from our staff."
+msgstr "En breve, usted tendrá una respuesta de nuestra equipo."
+
+#: templates/email/user.html:8
+msgid "Follow your solicitation by the link"
+msgstr "Siga su solicitud en enlace abajo"
+
 #: util/models.py:8
 msgid "country"
 msgstr "País"
@@ -547,6 +569,9 @@ msgstr "Países"
 #: util/models.py:12
 msgid "code"
 msgstr ""
+
+#~ msgid "%s New feedback"
+#~ msgstr "%s Nuevo feedback"
 
 #~ msgid "What is the purpose of your search in VHL?"
 #~ msgstr ""

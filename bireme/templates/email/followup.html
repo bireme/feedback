@@ -1,0 +1,43 @@
+{% if request.LANGUAGE_CODE == "es" %}
+
+    Hola,<br><br>
+
+    Su solicitud fue actualizada.<br><br>
+
+    Siga su solicitud en enlace abajo:
+
+    <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br><br>
+
+    Atentamente,<br>
+    BIREME
+
+{% else %}
+    {% if request.LANGUAGE_CODE == "pt-br" %}
+
+        Olá,<br><br>
+
+        Sua solicitação foi atualizada.<br><br>
+
+        Veja pelo link abaixo:
+
+        <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br><br>
+
+        Atenciosamente,<br>
+        BIREME
+
+    {% else  %}
+
+        Hello User<br>
+        <br>
+        Your solicitation was updated.<br>
+        <br>
+        Please check the link below:
+        <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br>
+        <br>
+        Regards,<br>
+        BIREME
+
+    {% endif %}
+{% endif %}
+
+

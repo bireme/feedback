@@ -1,0 +1,44 @@
+{% if request.LANGUAGE_CODE == "es" %}
+
+    Hola,<br><br>
+
+    Su solicitud fue abierta en nuestro sistema.<br>
+    En breve, usted tendrá una respuesta de nuestra equipo.<br><br>
+
+    Siga su solicitud en enlace abajo:
+
+    <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br><br>
+
+    Atentamente,<br>
+    BIREME
+
+{% else %}
+    {% if request.LANGUAGE_CODE == "pt-br" %}
+
+        Olá,<br><br>
+
+        Sua solicitação foi aberta em nosso sistema.<br>
+        Em breve, você terá uma resposta de nossa equipe.<br><br>
+
+        Siga sua solicitação pelo link abaixo:
+
+        <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br><br>
+
+        Atenciosamente,<br>
+        BIREME
+
+    {% else  %}
+
+        Hello User,<br>
+
+        Your solicitation was opened in our system.<br>
+        Soon, you will have an answer from our staff.<br><br>
+
+        Follow your solicitation by the link:
+        <a href="{{ feedback.get_absolute_url }}">{{ feedback.get_absolute_url }}</a><br><br>
+
+        Regards,<br>
+        BIREME
+
+    {% endif %}
+{% endif %}

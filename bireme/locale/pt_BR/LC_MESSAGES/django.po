@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 17:26-0300\n"
-"PO-Revision-Date: 2013-05-09 17:52\n"
+"POT-Creation-Date: 2013-05-09 18:04-0300\n"
+"PO-Revision-Date: 2013-05-09 18:05\n"
 "Last-Translator:   <moacir.moda@bireme.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -198,23 +198,16 @@ msgid "Has Answer?"
 msgstr "Possui Resposta?"
 
 #: feedback/email.py:12
-msgid "[Feedback Service]"
-msgstr "[Serviço de Feedback]"
+msgid "[Feedback Service] New feedback"
+msgstr "[Serviço de Feedback] Novo Feedback"
 
 #: feedback/email.py:13
-#, python-format
-msgid "%s New feedback"
-msgstr "%s Novo feedback"
+msgid "[Feedback Service] Feedback was registered"
+msgstr "[Serviço de Feedback] Feedback registrado"
 
 #: feedback/email.py:14
-#, python-format
-msgid "%s Feedback was registered"
-msgstr "%s Feedback foi registrado"
-
-#: feedback/email.py:15
-#, python-format
-msgid "%s Your feedback was updated"
-msgstr "%s Feedback foi atualizado"
+msgid "[Feedback Service] Your feedback was updated"
+msgstr "[Serviço de Feedback] Seu feedback foi atualizado"
 
 #: feedback/forms.py:13
 msgid "Email"
@@ -489,12 +482,12 @@ msgstr ""
 "perguntas?"
 
 #: feedback/templates/feedback/thanks.html:26
-msgid "No, thank's"
-msgstr "Não, obrigado"
-
-#: feedback/templates/feedback/thanks.html:27
 msgid "Yes"
 msgstr "Sim"
+
+#: feedback/templates/feedback/thanks.html:27
+msgid "No, thank's"
+msgstr "Não, obrigado"
 
 #: feedback/templates/feedback/thanks2.html:11
 msgid ""
@@ -531,6 +524,35 @@ msgstr "BIREME/OPAS/OMS"
 msgid "Report an error"
 msgstr "Comunicar um erro"
 
+#: templates/email/followup.html:3 templates/email/user.html:3
+msgid "Hello User"
+msgstr "Olá"
+
+#: templates/email/followup.html:5
+msgid "Your solicitation was updated."
+msgstr "Sua solicitação foi atualizada."
+
+#: templates/email/followup.html:7
+msgid "Please check the link below"
+msgstr "Por favor, verifique no link abaixo"
+
+#: templates/email/followup.html:10 templates/email/responsible.html:7
+#: templates/email/user.html:11
+msgid "Regards"
+msgstr "Atenciosamente"
+
+#: templates/email/user.html:5
+msgid "Your solicitation was opened in our system."
+msgstr "Sua solicitação foi aberta em nosso sistema."
+
+#: templates/email/user.html:6
+msgid "Soon, you will have an answer from our staff."
+msgstr "Em breve você terá uma resposta de nossa equipe."
+
+#: templates/email/user.html:8
+msgid "Follow your solicitation by the link"
+msgstr "Siga sua solicitação pelo link"
+
 #: util/models.py:8
 msgid "country"
 msgstr "País"
@@ -542,6 +564,9 @@ msgstr "Países"
 #: util/models.py:12
 msgid "code"
 msgstr "Código"
+
+#~ msgid "%s New feedback"
+#~ msgstr "%s Novo feedback"
 
 #~ msgid "Daily"
 #~ msgstr "diariamente"
