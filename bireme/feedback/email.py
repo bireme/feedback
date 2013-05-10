@@ -51,7 +51,7 @@ def send_email(sender, instance, created, **kwargs):
                 logger_logins.error(e)
 
     else:
-        if feedback.creator.email and feedback.answer != old.answer:
+        if feedback.creator.email and feedback.answer:
             email = feedback.application.responsible
             template = render_to_string("email/followup.html", output, context_instance=RequestContext(request)) 
             title = TITLE_FOLLOWUP
