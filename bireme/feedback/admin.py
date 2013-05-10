@@ -11,6 +11,21 @@ class GenericAdmin(admin.ModelAdmin):
 
 class FeedbackAdmin(GenericAdmin):
     model = Feedback
+
+    readonly_fields = ['problem', 'blocker_error', 'application', 'version', 'ip',
+        'referer', 'site', 'is_error']
+
+    fieldsets = (
+        (_('Administrative'), {
+            'fields' : ['is_active', 'staff_comment', 'answer',],
+        }), 
+        (_('Information'), {
+            'fields' : ['problem', 'blocker_error', 'application', 'version', 'ip',
+                'referer', 'site', 'is_error'],
+            # _('Administrative'): ['staff_comment', 'answer', 'is_valid'],
+        }), 
+    )
+
     list_display = ['id', 'category', 'has_answer', 'is_error', 'application', 'version']
     list_filter = ['is_error', 'application']
     search_fields = ['id', 'problem']

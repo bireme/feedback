@@ -34,9 +34,9 @@ class Feedback(Generic):
     referer = models.CharField(_("referer"), max_length=255, null=True, blank=True)
     site = models.CharField(_('id site'), max_length=255, null=True, blank=True)
     is_error = models.BooleanField(_("is a error?"))
-    staff_comment = models.TextField(_("staff comment"), blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-    answer = models.TextField(_("answer"), blank=True, null=True)
+    staff_comment = models.TextField(_("staff comment"), blank=True, null=True, help_text=_("This field works to leave a administrative message, only to staff visualization"))
+    is_active = models.BooleanField(default=True, help_text=_("Uncheck this field if this feedback may not public"))
+    answer = models.TextField(_("answer"), blank=True, null=True, help_text=_("Write the answer for the user"))
     category = models.ForeignKey(Category, blank=True, null=True)
 
     def __unicode__(self):
