@@ -26,7 +26,7 @@ class FeedbackAdmin(GenericAdmin):
         }), 
     )
 
-    list_display = ['id', 'category', 'has_answer', 'is_error', 'application', 'version']
+    list_display = ['id', 'category', 'has_answer', 'is_error', 'application', 'version', 'creator']
     list_filter = ['is_error', 'application']
     search_fields = ['id', 'problem']
 
