@@ -204,11 +204,11 @@ ITEMS_PER_PAGE = 20
 GOOGLE_ANALYTICS_ID = None
 
 # Email
-EMAIL_HOST = 'pombo.bireme.br'
+EMAIL_HOST = ''
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'appupdate'
-EMAIL_HOST_PASSWORD = 'bir@2012#'
-EMAIL_FROM = 'envio@bireme.org'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM = ''
 
 try:
     from settings_local import *
