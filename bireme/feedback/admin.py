@@ -17,7 +17,7 @@ class FeedbackAdmin(GenericAdmin):
 
     fieldsets = (
         (_('Administrative'), {
-            'fields' : ['is_active', 'staff_comment', 'answer',],
+            'fields' : ['is_active', 'staff_comment', 'answer', 'category'],
         }), 
         (_('Information'), {
             'fields' : ['problem', 'blocker_error', 'application', 'version', 'ip',
@@ -28,7 +28,7 @@ class FeedbackAdmin(GenericAdmin):
 
     list_display = ['id', 'category', 'has_answer', 'is_error', 'application', 'version', 'creator']
     list_filter = ['is_error', 'application']
-    search_fields = ['id', 'problem']
+    search_fields = ['id', 'problem', 'answer', 'problem']
 
     def has_answer(self, obj):
         if obj.answer:
