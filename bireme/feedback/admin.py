@@ -27,7 +27,7 @@ class FeedbackAdmin(GenericAdmin):
     )
 
     list_display = ['id', 'category', 'has_answer', 'is_error', 'application', 'version', 'creator']
-    list_filter = ['is_error', 'application']
+    list_filter = ['is_error', 'application', 'category']
     search_fields = ['id', 'problem', 'answer', 'problem']
 
     def has_answer(self, obj):
