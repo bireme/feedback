@@ -7,6 +7,8 @@ from django.db.models import signals
 from django.conf import settings
 from models import *
 
+import logging
+
 def send_email(sender, instance, created, **kwargs):
 
     TITLE_RESPONSIBLE = _("[Feedback Service] New feedback")
