@@ -5,15 +5,16 @@ from models import *
 
 class GenericAdmin(admin.ModelAdmin):
     
-    exclude = ('updated', 'updater')
+    exclude = ('updater', )
     list_display = ['__unicode__', 'creator', 'created']
     search_fields  = ['__unicode__',]
+    readonly_fields = ('updated', )
 
 class FeedbackAdmin(GenericAdmin):
     model = Feedback
 
     readonly_fields = ['problem', 'blocker_error', 'application', 'version', 'ip',
-        'referer', 'site', 'is_error']
+        'referer', 'site', 'is_error', 'created', ]
 
     fieldsets = (
         (_('Administrative'), {
@@ -21,7 +22,7 @@ class FeedbackAdmin(GenericAdmin):
         }), 
         (_('Information'), {
             'fields' : ['problem', 'blocker_error', 'application', 'version', 'ip',
-                'referer', 'site', 'is_error'],
+                'referer', 'site', 'is_error', 'created' ],
             # _('Administrative'): ['staff_comment', 'answer', 'is_valid'],
         }), 
     )
